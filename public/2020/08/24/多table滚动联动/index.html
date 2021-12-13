@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="H5," />
+  <meta name="keywords" content="JS," />
 
 
 
@@ -87,16 +87,16 @@
 
 
 
-<meta name="description" content="最近遇到一个用户体验问题，即从详情页回到列表页的时候，需要记住用户上次的位置，并且不刷新。最开始返回使用的是 history.Go(-1)，发现并不好使，也许在有些浏览器下有效果。折腾半天，突然看到HTML5里新加的 window.history.replaceState的方法，以下是亲自实践。">
+<meta name="description" content="在做一个需求，左右两个table需要滚动联动，你侬我侬（you scroll, i scroll）。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="H5 ReplaceState详情页到列表页的无刷新">
-<meta property="og:url" content="17it.github.io/2020/08/24/Html5-ReplaceState实现详情页到列表页的无刷新且回到上次位置/index.html">
+<meta property="og:title" content="多table滚动联动">
+<meta property="og:url" content="17it.github.io/2020/08/24/多table滚动联动/index.html">
 <meta property="og:site_name" content="你不知道你不知道">
-<meta property="og:description" content="最近遇到一个用户体验问题，即从详情页回到列表页的时候，需要记住用户上次的位置，并且不刷新。最开始返回使用的是 history.Go(-1)，发现并不好使，也许在有些浏览器下有效果。折腾半天，突然看到HTML5里新加的 window.history.replaceState的方法，以下是亲自实践。">
-<meta property="og:updated_time" content="2020-08-24T11:36:04.809Z">
+<meta property="og:description" content="在做一个需求，左右两个table需要滚动联动，你侬我侬（you scroll, i scroll）。">
+<meta property="og:updated_time" content="2021-12-10T08:00:54.678Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="H5 ReplaceState详情页到列表页的无刷新">
-<meta name="twitter:description" content="最近遇到一个用户体验问题，即从详情页回到列表页的时候，需要记住用户上次的位置，并且不刷新。最开始返回使用的是 history.Go(-1)，发现并不好使，也许在有些浏览器下有效果。折腾半天，突然看到HTML5里新加的 window.history.replaceState的方法，以下是亲自实践。">
+<meta name="twitter:title" content="多table滚动联动">
+<meta name="twitter:description" content="在做一个需求，左右两个table需要滚动联动，你侬我侬（you scroll, i scroll）。">
 
 
 
@@ -124,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="17it.github.io/2020/08/24/Html5-ReplaceState实现详情页到列表页的无刷新且回到上次位置/"/>
+  <link rel="canonical" href="17it.github.io/2020/08/24/多table滚动联动/"/>
 
 
 
 
 
-  <title> H5 ReplaceState详情页到列表页的无刷新 | 你不知道你不知道 </title>
+  <title> 多table滚动联动 | 你不知道你不知道 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -289,7 +289,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="17it.github.io/2020/08/24/Html5-ReplaceState实现详情页到列表页的无刷新且回到上次位置/">
+    <link itemprop="mainEntityOfPage" href="17it.github.io/2020/08/24/多table滚动联动/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Tony">
@@ -310,7 +310,7 @@
             
             
               
-                H5 ReplaceState详情页到列表页的无刷新
+                多table滚动联动
               
             
           </h2>
@@ -348,8 +348,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/H5/" itemprop="url" rel="index">
-                    <span itemprop="name">H5</span>
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
                   </a>
                 </span>
 
@@ -366,7 +366,7 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a class="cloud-tie-join-count" href="/2020/08/24/Html5-ReplaceState实现详情页到列表页的无刷新且回到上次位置/#comments" itemprop="discussionUrl">
+                <a class="cloud-tie-join-count" href="/2020/08/24/多table滚动联动/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count join-count" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -398,19 +398,21 @@
       
 
       
-        <p>最近遇到一个用户体验问题，即从详情页回到列表页的时候，需要记住用户上次的位置，并且不刷新。<br>最开始返回使用的是 history.Go(-1)，发现并不好使，也许在有些浏览器下有效果。折腾半天，突然看到HTML5里新加的 window.history.replaceState的方法，以下是亲自实践。<br><a id="more"></a></p>
-<h3 id="假设前提"><a href="#假设前提" class="headerlink" title="假设前提"></a>假设前提</h3><h4 id="列表页位list-html"><a href="#列表页位list-html" class="headerlink" title="列表页位list.html"></a>列表页位list.html</h4><ul>
-<li>获取列表的方法 getList()</li>
-<li>支持分页</li>
-<li>构建列表的方法dealWithResult()</li>
-<li>到详情页的方法 viewDetail()</li>
-<li>一个全局变量data，用来累加存储列表数据</li>
+        <p>在做一个需求，左右两个table需要滚动联动，你侬我侬（you scroll, i scroll）。<br><a id="more"></a></p>
+<h3 id="初实现"><a href="#初实现" class="headerlink" title="初实现"></a>初实现</h3><ul>
+<li>对于这个需求，第一想法就是分别监听两个table的scroll事件，然后在scroll事件里分别给对方设置scrollTop值。<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.dom = <span class="keyword">this</span>.$refs.tbl.$el.querySelector(<span class="string">'.fw-scroll-body'</span>)</div><div class="line"><span class="keyword">this</span>.affixDom = <span class="keyword">this</span>.$refs.affix_tbl.$el.querySelector(<span class="string">'.ant-table-body'</span>)</div><div class="line"><span class="keyword">this</span>.dom.addEventListener(<span class="string">'scroll'</span>, () =&gt; &#123;</div><div class="line">  <span class="keyword">this</span>.affixDom.scrollTop = <span class="keyword">this</span>.dom.scrollTop</div><div class="line">&#125;, <span class="literal">true</span>)</div><div class="line"><span class="keyword">this</span>.affixDom.addEventListener(<span class="string">'scroll'</span>, () =&gt; &#123;</div><div class="line">  <span class="keyword">this</span>.dom.scrollTop = <span class="keyword">this</span>.affixDom.scrollTop</div><div class="line">&#125;, <span class="literal">true</span>)</div></pre></td></tr></table></figure>
+</li>
 </ul>
-<h4 id="详情页是-detail-html-，我们不需要在detail页面做任何动作，只需要修改list页面"><a href="#详情页是-detail-html-，我们不需要在detail页面做任何动作，只需要修改list页面" class="headerlink" title="详情页是 detail.html ，我们不需要在detail页面做任何动作，只需要修改list页面"></a>详情页是 detail.html ，我们不需要在detail页面做任何动作，只需要修改list页面</h4><h3 id="方法实现"><a href="#方法实现" class="headerlink" title="方法实现"></a>方法实现</h3><p>1.在viewDetail方法里面处理，记住当前页码、当前滚动条的位置、当前列表显示的所有数据<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> statedata = &#123;&#125;; </div><div class="line">statedata.curPage = curPage; <span class="comment">//当前页码</span></div><div class="line">statedata.data = data; <span class="comment">//列表所有的数据  </span></div><div class="line">statedata.sh = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">//当前滚动条位置</span></div><div class="line">  <span class="keyword">var</span> scrollTop = <span class="number">0</span>;</div><div class="line">  <span class="keyword">if</span> (<span class="built_in">document</span>.documentElement &amp;&amp; <span class="built_in">document</span>.documentElement.scrollTop) &#123;</div><div class="line">    scrollTop = <span class="built_in">document</span>.documentElement.scrollTop;</div><div class="line">  &#125;<span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">document</span>.body) &#123;</div><div class="line">    scrollTop = <span class="built_in">document</span>.body.scrollTop;</div><div class="line">  &#125;             </div><div class="line">  <span class="keyword">return</span> scrollTop;</div><div class="line">&#125;();</div></pre></td></tr></table></figure></p>
-<p>2.替换state，不推荐使用 history.pushState方法，因为pushState每次都会加入一条数据，导致在列表页返回的时候会一直返回上一个state,不能退出列表页<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">history.replaceState(statedata , <span class="string">""</span>, <span class="string">"list.html"</span>);</div><div class="line"><span class="comment">// 跳转到详情页</span></div><div class="line"><span class="built_in">window</span>.location.href = <span class="string">'detail.html?id='</span>;</div></pre></td></tr></table></figure></p>
-<p>3.在list.html的onload里面处理<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 判断如果有history.state.data，说明是从详情页返回的</span></div><div class="line"><span class="keyword">if</span>(!!(<span class="built_in">window</span>.history.state &amp;&amp; <span class="built_in">window</span>.history.state.data)) &#123;</div><div class="line">  $(<span class="string">"#loading"</span>).hide(); </div><div class="line">  $(<span class="string">"#nomore"</span>).hide(); $(<span class="string">"#loadmore"</span>).show(); <span class="comment">//隐藏loading，显示加载更多（为了分页）</span></div><div class="line">  dealWithResult(<span class="built_in">window</span>.history.state); <span class="comment">//根据记录的数据显示列表</span></div><div class="line">  curPage = <span class="built_in">window</span>.history.state.curPage; </div><div class="line">  statedata  = <span class="built_in">window</span>.history.state; <span class="comment">//把页面和data赋值给全局变量</span></div><div class="line">  <span class="built_in">window</span>.history.replaceState(&#123;&#125;, <span class="string">""</span>, <span class="string">"list.html"</span>); <span class="comment">//清空state，防止列表页点返回的时候会回到上一个state</span></div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line">  getList(); <span class="comment">//没有window.history.state.data，说明不是从详情页来的，则调用ajax从服务器获取数据</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>4.在dealWithResult方法里处理：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">dealWithResult</span>(<span class="params">listdata</span>)</span>&#123;</div><div class="line">  <span class="comment">// 构建列表  略</span></div><div class="line">  <span class="comment">// 判断如果是详情页回来，获取上次的滚动条位置，等列表构建完成后，用js设置当前滚动条位置为上次的位置</span></div><div class="line">  <span class="keyword">if</span> (!!(<span class="built_in">window</span>.history.state &amp;&amp; <span class="built_in">window</span>.history.state.data)) &#123;</div><div class="line">    <span class="comment">// 延迟 0.5秒滚动，防止页面中列表还没构建完成，保险起见（其实在执行这里之前，列表页已经构建完成）</span></div><div class="line">    setTimeout(<span class="built_in">window</span>.scroll(<span class="number">0</span>, <span class="built_in">window</span>.history.state.sh || <span class="number">0</span>), <span class="number">500</span>);</div><div class="line">    <span class="comment">// 此处用window.scroll方法，不用window.scrollBy，因为window.scrollBy会乱跳</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>5.在getList方法里需要给全局变量statedata赋值<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (curPage == <span class="number">1</span>) &#123; </div><div class="line">  statedata = data; </div><div class="line">&#125; <span class="keyword">else</span> &#123; <span class="comment">// data为ajax调用接口返回的数据</span></div><div class="line">  <span class="keyword">var</span> s = statedata.data;</div><div class="line">  <span class="comment">//如果当前页码不是1，则把返回的结果累加到statedata里面</span></div><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> t <span class="keyword">in</span> data.data) &#123;</div><div class="line">    s.push(data.data[t]);</div><div class="line">  &#125;</div><div class="line">  statedata.data = s;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>一顿操作猛如虎，mac运行流畅，都准备开酒庆祝了，然而，用windows上的chrome一测，滚动卡的一批~</p>
+<h3 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h3><ul>
+<li>最先想到的是不是windows版的chrome在频繁处理scroll事件，遂加上debounce 100ms，发现有所改善，但是两个table会出现不太同步滚动的现象。</li>
+<li>作为一个精益求精的码农(其实是没能说服产品)，开始思考还有没有更流畅的体验。几经折腾，开始怀疑是不是频繁处理scroll导致的卡顿，试着注掉一个table的scroll事件，发现顿时流畅了。在两个scroll事件里加上console，滚动表格，发现两个事件都在执行。综合上述两种现象，发觉导致卡顿的根本原因是滚动的时候两个table来回循环给对方赋值scrollTop导致scrollTop一直不会大变。<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3>判断鼠标当前所在位置属于哪个table，不是当前table的时候不触发当前table的滚动事件，两个思路。</li>
+</ul>
+<p>1、实时获取鼠标位置，判断鼠标在哪个table区域内（舍弃，每次鼠标移动，都涉及到位置计算，不太优）</p>
+<p>2、监听两个table的mouseover和mouseout事件，来改变标志位<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.whereIsMouse = <span class="string">''</span> <span class="comment">// 鼠标所在位置</span></div><div class="line"><span class="keyword">this</span>.dom = <span class="keyword">this</span>.$refs.tbl.$el.querySelector(<span class="string">'.fw-scroll-body'</span>)</div><div class="line"><span class="keyword">this</span>.affixDom = <span class="keyword">this</span>.$refs.affix_tbl.$el.querySelector(<span class="string">'.ant-table-body'</span>)</div><div class="line"></div><div class="line"><span class="keyword">this</span>.dom.addEventListener(<span class="string">'scroll'</span>, () =&gt; &#123;</div><div class="line">  <span class="comment">// 判断鼠标是否在dom表格内，如果在，则触发该滚动事件</span></div><div class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>.whereIsMouse === <span class="string">'dom'</span>) &#123;</div><div class="line">    <span class="keyword">this</span>.affixDom.scrollTop = <span class="keyword">this</span>.dom.scrollTop</div><div class="line">  &#125;</div><div class="line">&#125;, <span class="literal">true</span>)</div><div class="line"><span class="keyword">this</span>.affixDom.addEventListener(<span class="string">'scroll'</span>, () =&gt; &#123;</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>.whereIsMouse === <span class="string">'affixDom'</span>) &#123;</div><div class="line">    <span class="keyword">this</span>.dom.scrollTop = <span class="keyword">this</span>.affixDom.scrollTop</div><div class="line">  &#125;</div><div class="line">&#125;, <span class="literal">true</span>)</div><div class="line"></div><div class="line"><span class="keyword">this</span>.dom.addEventListener(<span class="string">'mouseover'</span>, () =&gt; &#123; <span class="keyword">this</span>.whereIsMouse = <span class="string">'dom'</span> &#125;, <span class="literal">true</span>)</div><div class="line"><span class="keyword">this</span>.dom.addEventListener(<span class="string">'mouseout'</span>, () =&gt; &#123; <span class="keyword">this</span>.whereIsMouse = <span class="string">''</span> &#125;, <span class="literal">true</span>)</div><div class="line"><span class="keyword">this</span>.affixDom.addEventListener(<span class="string">'mouseover'</span>, () =&gt; &#123; <span class="keyword">this</span>.whereIsMouse = <span class="string">'affixDom'</span> &#125;, <span class="literal">true</span>)</div><div class="line"><span class="keyword">this</span>.affixDom.addEventListener(<span class="string">'mouseout'</span>, () =&gt; &#123; <span class="keyword">this</span>.whereIsMouse = <span class="string">''</span> &#125;, <span class="literal">true</span>)</div></pre></td></tr></table></figure></p>
+<ul>
+<li>方向不对，努力白费~</li>
+</ul>
 
       
     </div>
@@ -461,7 +463,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/H5/" rel="tag"># H5</a>
+            <a href="/tags/JS/" rel="tag"># JS</a>
           
         </div>
       
@@ -474,8 +476,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/08/24/Aliyun+Nginx部署网站/" rel="next" title="Aliyun+Nginx部署网站">
-                <i class="fa fa-chevron-left"></i> Aliyun+Nginx部署网站
+              <a href="/2020/08/24/centos搭建rabbitmq（二）/" rel="next" title="centos搭建rabbitmq（二）">
+                <i class="fa fa-chevron-left"></i> centos搭建rabbitmq（二）
               </a>
             
           </div>
@@ -484,8 +486,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/08/24/Hello-world/" rel="prev" title="Hello World">
-                Hello World <i class="fa fa-chevron-right"></i>
+              <a href="/2020/08/24/全国省市县三级地址联动js/" rel="prev" title="全国省市县三级地址联动js">
+                全国省市县三级地址联动js <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -637,7 +639,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#假设前提"><span class="nav-number">1.</span> <span class="nav-text">假设前提</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#列表页位list-html"><span class="nav-number">1.1.</span> <span class="nav-text">列表页位list.html</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#详情页是-detail-html-，我们不需要在detail页面做任何动作，只需要修改list页面"><span class="nav-number">1.2.</span> <span class="nav-text">详情页是 detail.html ，我们不需要在detail页面做任何动作，只需要修改list页面</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法实现"><span class="nav-number">2.</span> <span class="nav-text">方法实现</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#初实现"><span class="nav-number">1.</span> <span class="nav-text">初实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题分析"><span class="nav-number">2.</span> <span class="nav-text">问题分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方案"><span class="nav-number">3.</span> <span class="nav-text">解决方案</span></a></li></ol></div>
             
 
           </div>

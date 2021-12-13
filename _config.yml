@@ -69,5 +69,6 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/17it/17it.github.io.git
+#  repo: https://github.com/17it/17it.github.io.git
+  repo: https://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@github.com/17it/17it.github.io.git
   brach: master
