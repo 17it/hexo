@@ -1,5 +1,6 @@
 ---
 title: centos搭建rabbitmq（二）
+date: 2018-09-03
 categories: Nginx
 tags: 
     - Linux
@@ -8,7 +9,6 @@ tags:
     - RabbitMQ
     - amqplib
 #description: 
-#date: 
 ---
 
 rabbitmq 实践（使用amqplib客户端）

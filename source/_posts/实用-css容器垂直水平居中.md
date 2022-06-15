@@ -1,11 +1,11 @@
 ---
 title: css容器垂直水平居中
+date: 2017-07-18
 categories: 前端实用
 tags: 
     - css
     - 垂直居中
 #description: 
-#date: 
 ---
 
 css容器垂直水平居中常用方法，持续更新中...

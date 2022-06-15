@@ -1,0 +1,868 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Linux,mysql,Navicat," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Linux-CentOS-7.2.x上安装mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux-CentOS-7.2.x下安装mysql（Navicat）">
+<meta property="og:url" content="https://17it.github.io/2017/03/05/Linux-CentOS-7.2.x%E4%B8%8B%E5%AE%89%E8%A3%85mysql/index.html">
+<meta property="og:site_name" content="你不知道你不知道">
+<meta property="og:description" content="Linux-CentOS-7.2.x上安装mysql">
+<meta property="og:locale">
+<meta property="og:image" content="http://onm9ileaw.bkt.clouddn.com/hexo/navicat.png">
+<meta property="article:published_time" content="2017-03-04T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-15T08:16:27.019Z">
+<meta property="article:author" content="Tony">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="mysql">
+<meta property="article:tag" content="Navicat">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://onm9ileaw.bkt.clouddn.com/hexo/navicat.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://17it.github.io/2017/03/05/Linux-CentOS-7.2.x下安装mysql/"/>
+
+
+
+
+
+  <title> Linux-CentOS-7.2.x下安装mysql（Navicat） | 你不知道你不知道 </title>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?cf8693b35d2353f4411bb261a3042217";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">你不知道你不知道</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">17it 一起IT</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://17it.github.io/2017/03/05/Linux-CentOS-7.2.x%E4%B8%8B%E5%AE%89%E8%A3%85mysql/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="你不知道你不知道">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                Linux-CentOS-7.2.x下安装mysql（Navicat）
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-05T00:00:00+08:00">
+                2017-03-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/2017/03/05/Linux-CentOS-7.2.x%E4%B8%8B%E5%AE%89%E8%A3%85mysql/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o">本文总阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Linux-CentOS-7.2.x上安装mysql</p>
+<span id="more"></span>
+
+<h3 id="方法一、使用yum"><a href="#方法一、使用yum" class="headerlink" title="方法一、使用yum"></a>方法一、使用yum</h3><p>CentOS7的yum源中默认好像是没有mysql的。为了解决这个问题，我们要先下载mysql的repo源。</p>
+<ul>
+<li><p>1.下载mysql的repo源</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>2.安装mysql-community-release-el7-5.noarch.rpm包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo rpm -ivh mysql-community-release-el7-5.noarch.rpm</span><br></pre></td></tr></table></figure>
+<p>安装这个包后，会获得两个mysql的yum repo源：&#x2F;etc&#x2F;yum.repos.d&#x2F;mysql-community.repo，&#x2F;etc&#x2F;yum.repos.d&#x2F;mysql-community-source.repo。</p>
+</li>
+<li><p>3.安装mysql</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo yum install mysql-server</span><br></pre></td></tr></table></figure>
+<p>根据步骤安装就可以了，不过安装完成后，没有密码，需要重置密码</p>
+</li>
+<li><p>4.重置密码<br>重置密码前，首先要登录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mysql -u root</span><br></pre></td></tr></table></figure>
+<p>登录时有可能报这样的错：ERROR 2002 (HY000): Can‘t connect to local MySQL server through socket ‘&#x2F;var&#x2F;lib&#x2F;mysql&#x2F;mysql.sock‘ (2)，原因是&#x2F;var&#x2F;lib&#x2F;mysql的访问权限问题。下面的命令把&#x2F;var&#x2F;lib&#x2F;mysql的拥有者改为当前用户：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo <span class="built_in">chown</span> -R openscanner:openscanner /var/lib/mysql</span><br></pre></td></tr></table></figure>
+<p>然后，重启服务：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ service mysqld restart</span><br></pre></td></tr></table></figure>
+<p>接下来登录重置密码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mysql -u root</span><br><span class="line">mysql &gt; use mysql;mysql &gt; update user <span class="built_in">set</span> password=password(‘123456‘) <span class="built_in">where</span> user=‘root‘;mysql &gt; <span class="built_in">exit</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>5.需要更改权限才能实现远程连接MYSQL数据库<br>可以通过以下方式来确认：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">root<span class="comment">#mysql -h localhost -uroot -p</span></span><br><span class="line">Enter password: ******</span><br><span class="line">Welcome to the MySQL monitor.   Commands end with ; or \g.</span><br><span class="line">Your MySQL connection <span class="built_in">id</span> is 4 to server version: 4.0.20a-debug</span><br><span class="line">Type ‘<span class="built_in">help</span>;’ or ‘\h’ <span class="keyword">for</span> <span class="built_in">help</span>. Type ‘\c’ to clear the buffer.</span><br><span class="line">mysql&gt; use mysql; (此DB存放MySQL的各种配置信息)</span><br><span class="line">Database changed</span><br><span class="line">mysql&gt; select host,user from user; (查看用户的权限情况)</span><br><span class="line">mysql&gt; select host, user, password from user;</span><br><span class="line">+-----------+------+-------------------------------------------+</span><br><span class="line">| host       | user | password                                   |</span><br><span class="line">+-----------+------+-------------------------------------------+</span><br><span class="line">| localhost | root | *4ACFE3202A5FF5CF467898FC58AAB1D615029441 |</span><br><span class="line">| 127.0.0.1 | root | *4ACFE3202A5FF5CF467898FC58AAB1D615029441 |</span><br><span class="line">| localhost |       |                                            |</span><br><span class="line">+-----------+------+-------------------------------------------+</span><br><span class="line">4 rows <span class="keyword">in</span> <span class="built_in">set</span> (0.01 sec)</span><br></pre></td></tr></table></figure>
+<p>由此可以看出，只能以localhost的主机方式访问。<br>解决方法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; Grant all privileges on *.* to <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;%&#x27;</span> identified by <span class="string">&#x27;123456&#x27;</span> with grant option;</span><br><span class="line">(%表示是所有的外部机器，如果指定某一台机，就将%改为相应的机器名；‘root’则是指要使用的用户名，)</span><br><span class="line">mysql&gt; flush privileges;    (运行此句才生效，或者重启MySQL)</span><br><span class="line">Query OK, 0 rows affected (0.03 sec)</span><br></pre></td></tr></table></figure>
+<p>再次查看。。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select host, user, password from user;</span><br><span class="line">+-----------+------+-------------------------------------------+</span><br><span class="line">| host       | user | password                                   |</span><br><span class="line">+-----------+------+-------------------------------------------+</span><br><span class="line">| localhost | root | *4ACFE3202A5FF5CF467898FC58AAB1D615029441 |</span><br><span class="line">| 127.0.0.1 | root | *4ACFE3202A5FF5CF467898FC58AAB1D615029441 |</span><br><span class="line">| localhost |       |                                            |</span><br><span class="line">| %          | root | *4ACFE3202A5FF5CF467898FC58AAB1D615029441 |</span><br><span class="line">+-----------+------+-------------------------------------------+</span><br><span class="line">4 rows <span class="keyword">in</span> <span class="built_in">set</span> (0.01 sec)</span><br></pre></td></tr></table></figure></li>
+<li><p>6.在Mac或者windows上安装navicat for mysql，然后远程来连接Linux上的数据库。<br><strong>由于navicat需要图形化的界面，所以如果直接在Linux系统上安装Navicat，还需要安装插件wine（此插件在Linux下很容易出错，详见下面方法二）。</strong></p>
+<img src="http://onm9ileaw.bkt.clouddn.com/hexo/navicat.png" alt="Navicat连接远程mysql" title="Navicat连接远程mysql"></li>
+</ul>
+<h3 id="方法二、自己下载安装包安装（不推荐，容易出错）"><a href="#方法二、自己下载安装包安装（不推荐，容易出错）" class="headerlink" title="方法二、自己下载安装包安装（不推荐，容易出错）"></a>方法二、自己下载安装包安装（不推荐，容易出错）</h3><ul>
+<li>Centos6.7安装Navicat：<a target="_blank" rel="noopener" href="http://blog.csdn.net/u010824591/article/details/50496553">http://blog.csdn.net/u010824591/article/details/50496553</a></li>
+<li>LINUX系统安装MYSQL命令：<a target="_blank" rel="noopener" href="http://www.cnblogs.com/phpxiebin/p/4988156.html">http://www.cnblogs.com/phpxiebin/p/4988156.html</a></li>
+<li>初始化mysql数据库提示缺少Data:dumper模块：<a target="_blank" rel="noopener" href="http://blog.sina.com.cn/s/blog_694864e60102vaij.html">http://blog.sina.com.cn/s/blog_694864e60102vaij.html</a></li>
+<li>Navicat下载链接：<a target="_blank" rel="noopener" href="https://www.navicat.com/download/navicat-for-mysql">https://www.navicat.com/download/navicat-for-mysql</a></li>
+</ul>
+<h3 id="扩展：Linux权限小知识"><a href="#扩展：Linux权限小知识" class="headerlink" title="扩展：Linux权限小知识"></a>扩展：Linux权限小知识</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">-rw-------   (<span class="number">600</span>) 只有所有者才有读和写的权限 </span><br><span class="line">-rw-r--r--   (<span class="number">644</span>) 只有所有者才有读和写的权限，组群和其他人只有读的权限 </span><br><span class="line">-rwx------   (<span class="number">700</span>) 只有所有者才有读，写，执行的权限 </span><br><span class="line">-rwxr-xr-x   (<span class="number">755</span>) 只有所有者才有读，写，执行的权限，组群和其他人只有读和执行的权限 </span><br><span class="line">-rwx--x--x   (<span class="number">711</span>) 只有所有者才有读，写，执行的权限，组群和其他人只有执行的权限 </span><br><span class="line">-rw-rw-rw-   (<span class="number">666</span>) 每个人都有读写的权限 </span><br><span class="line">-rwxrwxrwx   (<span class="number">777</span>) 每个人都有读写和执行的权限</span><br></pre></td></tr></table></figure>
+
+<p>给付权限的方法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 777(a+rwx) &lt;folder or filename&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://onm9ileaw.bkt.clouddn.com/pics/private/wxpay.jpeg" alt=" WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://onm9ileaw.bkt.clouddn.com/pics/private/alipay.jpeg" alt=" Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+            <a href="/tags/mysql/" rel="tag"># mysql</a>
+          
+            <a href="/tags/Navicat/" rel="tag"># Navicat</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/05/%E5%8E%9F%E7%94%9FJS%E7%9A%84debounce%E5%92%8Cthrottle/" rel="next" title="原生JS的debounce和throttle">
+                <i class="fa fa-chevron-left"></i> 原生JS的debounce和throttle
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/05/Vue-cli%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BAVue/" rel="prev" title="Vue-cli快速搭建Vue">
+                Vue-cli快速搭建Vue <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="" />
+          <p class="site-author-name" itemprop="name"></p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/17it?tab=repositories" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/5344903879/profile?topnav=1&wvr=6" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%E3%80%81%E4%BD%BF%E7%94%A8yum"><span class="nav-number">1.</span> <span class="nav-text">方法一、使用yum</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%E3%80%81%E8%87%AA%E5%B7%B1%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E5%8C%85%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%8D%E6%8E%A8%E8%8D%90%EF%BC%8C%E5%AE%B9%E6%98%93%E5%87%BA%E9%94%99%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">方法二、自己下载安装包安装（不推荐，容易出错）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A9%E5%B1%95%EF%BC%9ALinux%E6%9D%83%E9%99%90%E5%B0%8F%E7%9F%A5%E8%AF%86"><span class="nav-number">3.</span> <span class="nav-text">扩展：Linux权限小知识</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  1991 - 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Tony</span>
+</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user">本站访客数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">本站总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "ea7464b38e634abca0f1f99c4189f526",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

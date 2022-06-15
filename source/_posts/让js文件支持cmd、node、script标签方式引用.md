@@ -1,10 +1,10 @@
 ---
 title: 让js文件支持cmd、node、script标签方式引用
+date: 2018-10-08
 categories: JS
 tags: 
     - JS
 #description: 
-#date: 
 ---
 
 让js文件支持cmd、node、script标签方式引用

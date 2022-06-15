@@ -1,11 +1,11 @@
 ---
 title: proxy代理
+date: 2021-03-16
 categories: web
 tags: 
     - web
     - proxy
 #description: 
-#date: 
 ---
 
 在项目开发中，一般情况是可以localhost调试。但是遇到以下的情况，我们只能通过测试环境/正式环境进行调试，为了更好的定位问题，我们需要把测试/正式环境连到自己本地的代码进行断点（也就是代理）。

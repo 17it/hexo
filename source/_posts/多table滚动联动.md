@@ -1,10 +1,10 @@
 ---
 title: 多table滚动联动
+date: 2021-12-10
 categories: JS
 tags: 
     - JS
 #description: 
-#date: 
 ---
 
 在做一个需求，左右两个table需要滚动联动，你侬我侬（you scroll, i scroll）。

@@ -1,11 +1,11 @@
 ---
 title: 几种JS里数组去重方法比较
+date: 2019-09-20
 categories: 前端
 tags: 
     - 前端
     - JS
 #description: 
-#date: 
 ---
 
 昨天面试被问到JS里数组去重的方法，于是把最常用的for + object方法说了（当时本来准备说es6的Set去重的，结果突然忘记Set了）。

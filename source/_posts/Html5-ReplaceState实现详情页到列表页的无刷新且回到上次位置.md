@@ -1,10 +1,10 @@
 ---
 title: H5 ReplaceState详情页到列表页的无刷新
+date: 2017-03-05
 categories: H5
 tags: 
     - H5
 #description: 
-#date: 
 ---
 
 最近遇到一个用户体验问题，即从详情页回到列表页的时候，需要记住用户上次的位置，并且不刷新。

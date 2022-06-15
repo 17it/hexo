@@ -87,27 +87,26 @@
 
 
 
-<meta name="description" content="记flutter插件开发实践过程。官方中文文档：https://flutterchina.club/developing-packages/，官方文档：https://flutter.dev/docs/development/packages-and-plugins/developing-packages">
+<meta name="description" content="记flutter插件开发实践过程。官方中文文档：https:&#x2F;&#x2F;flutterchina.club&#x2F;developing-packages&#x2F;，官方文档：https:&#x2F;&#x2F;flutter.dev&#x2F;docs&#x2F;development&#x2F;packages-and-plugins&#x2F;developing-packages">
 <meta property="og:type" content="article">
 <meta property="og:title" content="flutter插件开发实践">
-<meta property="og:url" content="17it.github.io/2020/08/24/flutter插件开发实践/index.html">
+<meta property="og:url" content="https://17it.github.io/2020/08/24/flutter%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E5%AE%9E%E8%B7%B5/index.html">
 <meta property="og:site_name" content="你不知道你不知道">
-<meta property="og:description" content="记flutter插件开发实践过程。官方中文文档：https://flutterchina.club/developing-packages/，官方文档：https://flutter.dev/docs/development/packages-and-plugins/developing-packages">
-<meta property="og:image" content="17it.github.io/../images/flutter/flutter plugin.png">
-<meta property="og:image" content="17it.github.io/../images/flutter/flutter plugin 2.png">
-<meta property="og:image" content="17it.github.io/../images/flutter/flutter plugin 3.png">
-<meta property="og:updated_time" content="2020-08-24T12:59:33.398Z">
+<meta property="og:description" content="记flutter插件开发实践过程。官方中文文档：https:&#x2F;&#x2F;flutterchina.club&#x2F;developing-packages&#x2F;，官方文档：https:&#x2F;&#x2F;flutter.dev&#x2F;docs&#x2F;development&#x2F;packages-and-plugins&#x2F;developing-packages">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-08-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-15T08:28:13.289Z">
+<meta property="article:author" content="Tony">
+<meta property="article:tag" content="flutter">
+<meta property="article:tag" content="plugin">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="flutter插件开发实践">
-<meta name="twitter:description" content="记flutter插件开发实践过程。官方中文文档：https://flutterchina.club/developing-packages/，官方文档：https://flutter.dev/docs/development/packages-and-plugins/developing-packages">
-<meta name="twitter:image" content="17it.github.io/../images/flutter/flutter plugin.png">
 
 
 
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/',
+    root: '',
     scheme: 'Mist',
     sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
@@ -128,14 +127,14 @@
 
 
 
-  <link rel="canonical" href="17it.github.io/2020/08/24/flutter插件开发实践/"/>
+  <link rel="canonical" href="https://17it.github.io/2020/08/24/flutter插件开发实践/"/>
 
 
 
 
 
   <title> flutter插件开发实践 | 你不知道你不知道 </title>
-</head>
+<meta name="generator" content="Hexo 6.2.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -293,10 +292,10 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="17it.github.io/2020/08/24/flutter插件开发实践/">
+    <link itemprop="mainEntityOfPage" href="https://17it.github.io/2020/08/24/flutter%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E5%AE%9E%E8%B7%B5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Tony">
+      <meta itemprop="name" content="">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
@@ -329,7 +328,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-24T20:59:33+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-24T00:00:00+08:00">
                 2020-08-24
               </time>
             
@@ -370,7 +369,7 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a class="cloud-tie-join-count" href="/2020/08/24/flutter插件开发实践/#comments" itemprop="discussionUrl">
+                <a class="cloud-tie-join-count" href="/2020/08/24/flutter%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E5%AE%9E%E8%B7%B5/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count join-count" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -402,36 +401,30 @@
       
 
       
-        <p>记flutter插件开发实践过程。官方中文文档：<a href="https://flutterchina.club/developing-packages/，官方文档：https://flutter.dev/docs/development/packages-and-plugins/developing-packages" target="_blank" rel="external">https://flutterchina.club/developing-packages/，官方文档：https://flutter.dev/docs/development/packages-and-plugins/developing-packages</a><br><a id="more"></a></p>
+        <p>记flutter插件开发实践过程。官方中文文档：<a target="_blank" rel="noopener" href="https://flutterchina.club/developing-packages/%EF%BC%8C%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%EF%BC%9Ahttps://flutter.dev/docs/development/packages-and-plugins/developing-packages">https://flutterchina.club/developing-packages/，官方文档：https://flutter.dev/docs/development/packages-and-plugins/developing-packages</a></p>
+<span id="more"></span>
+
 <h3 id="一、新建插件"><a href="#一、新建插件" class="headerlink" title="一、新建插件"></a>一、新建插件</h3><p>官方提供了两种新建插件的方法</p>
 <ul>
 <li>1.IDE里 file -&gt; new -&gt; new flutter project -&gt; flutter plugin -&gt; next(输入信息) -&gt; finish</li>
-<li>2.通过命令行新建，flutter create –org com.xxx.xxx –template=plugin –platforms=android,ios -a java -i objc <plugin name=""><ul>
+<li>2.通过命令行新建，flutter create –org com.xxx.xxx –template&#x3D;plugin –platforms&#x3D;android,ios -a java -i objc <plugin name></plugin></li>
+</ul>
+<ul>
 <li>实践发现，通过IDE里新建的plugin，没有android和ios目录，所以这里采用的是第二种方法。</li>
-<li>新建完成后的目录如下，新建完成后可以cd到example/lib/main.dart，然后run，确认能正常运行，不会报错。<br><img src="../images/flutter/flutter plugin.png" alt="flutter plugin"><br>** 新建插件的时候，可以选择android和ios的开发语言，本示例中仅支持java和object-c，不支持kotin和swift.</li>
+<li>新建完成后的目录如下，新建完成后可以cd到example&#x2F;lib&#x2F;main.dart，然后run，确认能正常运行，不会报错。<br>![flutter plugin](..&#x2F;images&#x2F;flutter&#x2F;flutter plugin.png)<br>** 新建插件的时候，可以选择android和ios的开发语言，本示例中仅支持java和object-c，不支持kotin和swift.</li>
 </ul>
-</plugin></li>
-</ul>
-<h3 id="二、添加功能"><a href="#二、添加功能" class="headerlink" title="二、添加功能"></a>二、添加功能</h3><p>1、找到 lib/xxxx.dart<br>2、仿照项目给的默认方法 platformVersion ，新增自己的方法</p>
-<h3 id="三、android端功能新增"><a href="#三、android端功能新增" class="headerlink" title="三、android端功能新增"></a>三、android端功能新增</h3><p>1、在android目录上右键，选择flutter，然后open android module in android studio。<img src="../images/flutter/flutter plugin 2.png" alt="flutter plugin 2"><br>2、接下来会以安卓项目打开android下面的目录（直接在插件项目里编辑安卓原生代码会报很多错误，并且没有自动补全提示）<br>3、添加自己的代码逻辑（这里涉及到安卓原生开发）</p>
-<pre><code>+ manifests/AndroidManifest.xml里面添加权限（如果有需要）
-+ java/com.xxx.xxx/xxxPlugin里面添加逻辑代码
-+ Gradle Scripts/build.gradle里添加第三方依赖（如果有，具体可以参照第三方文档）
-</code></pre><p>4、完成后点击操作栏的额 make project（绿色的🔨），等待构建完成<br>5、回到插件项目，在example/lib/main.dart里加上测试代码，看功能是否ok</p>
-<h3 id="四、ios端功能新增"><a href="#四、ios端功能新增" class="headerlink" title="四、ios端功能新增"></a>四、ios端功能新增</h3><p>1、在ios目录上右键，选择flutter，然后open ios module in xcode。<img src="../images/flutter/flutter plugin 3.png" alt="flutter plugin 3"><br>2、接下来会以ios项目打开ios下面的目录<br>3、添加自己的代码逻辑（这里涉及到ios原生开发）</p>
-<pre><code>+ Pods/Development Pods/&lt;plugin name&gt;/Pod/xxx.podspec里面添加依赖（如果有需要）
-+ Pods/Development Pods/&lt;plugin name&gt;/....../Classes/xxx.m里面添加逻辑代码
-</code></pre><p>4、回到插件项目，在example/lib/main.dart里加上测试代码，看功能是否ok</p>
-<h3 id="五、发布到pub-dev"><a href="#五、发布到pub-dev" class="headerlink" title="五、发布到pub.dev"></a>五、发布到pub.dev</h3><p>1、确保pubspec.yaml、README.md、CHANGELOG.md、LICENSE都正确填写，然后执行下面命令检查是否有错误。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">flutter packages pub publish --dry-run</div></pre></td></tr></table></figure></p>
-<p>2、检查无误后，执行下面命令发布。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">flutter packages pub publish</div></pre></td></tr></table></figure></p>
+<h3 id="二、添加功能"><a href="#二、添加功能" class="headerlink" title="二、添加功能"></a>二、添加功能</h3><p>1、找到 lib&#x2F;xxxx.dart<br>2、仿照项目给的默认方法 platformVersion ，新增自己的方法</p>
+<h3 id="三、android端功能新增"><a href="#三、android端功能新增" class="headerlink" title="三、android端功能新增"></a>三、android端功能新增</h3><p>1、在android目录上右键，选择flutter，然后open android module in android studio。![flutter plugin 2](..&#x2F;images&#x2F;flutter&#x2F;flutter plugin 2.png)<br>2、接下来会以安卓项目打开android下面的目录（直接在插件项目里编辑安卓原生代码会报很多错误，并且没有自动补全提示）<br>3、添加自己的代码逻辑（这里涉及到安卓原生开发）<br>    + manifests&#x2F;AndroidManifest.xml里面添加权限（如果有需要）<br>    + java&#x2F;com.xxx.xxx&#x2F;xxxPlugin里面添加逻辑代码<br>    + Gradle Scripts&#x2F;build.gradle里添加第三方依赖（如果有，具体可以参照第三方文档）<br>4、完成后点击操作栏的额 make project（绿色的🔨），等待构建完成<br>5、回到插件项目，在example&#x2F;lib&#x2F;main.dart里加上测试代码，看功能是否ok</p>
+<h3 id="四、ios端功能新增"><a href="#四、ios端功能新增" class="headerlink" title="四、ios端功能新增"></a>四、ios端功能新增</h3><p>1、在ios目录上右键，选择flutter，然后open ios module in xcode。![flutter plugin 3](..&#x2F;images&#x2F;flutter&#x2F;flutter plugin 3.png)<br>2、接下来会以ios项目打开ios下面的目录<br>3、添加自己的代码逻辑（这里涉及到ios原生开发）<br>    + Pods&#x2F;Development Pods&#x2F;<plugin name>&#x2F;Pod&#x2F;xxx.podspec里面添加依赖（如果有需要）<br>    + Pods&#x2F;Development Pods&#x2F;<plugin name>&#x2F;……&#x2F;Classes&#x2F;xxx.m里面添加逻辑代码<br>4、回到插件项目，在example&#x2F;lib&#x2F;main.dart里加上测试代码，看功能是否ok</plugin></plugin></p>
+<h3 id="五、发布到pub-dev"><a href="#五、发布到pub-dev" class="headerlink" title="五、发布到pub.dev"></a>五、发布到pub.dev</h3><p>1、确保pubspec.yaml、README.md、CHANGELOG.md、LICENSE都正确填写，然后执行下面命令检查是否有错误。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flutter packages pub publish --dry-run</span><br></pre></td></tr></table></figure>
+<p>2、检查无误后，执行下面命令发布。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flutter packages pub publish</span><br></pre></td></tr></table></figure>
+
 <p>** 发布过程中，可能遇到一直卡在 Authorization received, processing… ，解决方案如下：</p>
 <ul>
-<li><p>首先打开shadow sockets，然后在terminal里开启代理：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> http_proxy=http://127.0.0.1:1087;</div><div class="line"><span class="built_in">export</span> https_proxy=http://127.0.0.1:1087;</div></pre></td></tr></table></figure>
-</li>
-<li><p>如果开了代理还是不行，可以试试将地址指向官方的。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">flutter packages pub publish --server=https://pub.dartlang.org</div></pre></td></tr></table></figure>
-</li>
+<li>首先打开shadow sockets，然后在terminal里开启代理：   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> http_proxy=http://127.0.0.1:1087;</span><br><span class="line"><span class="built_in">export</span> https_proxy=http://127.0.0.1:1087;</span><br></pre></td></tr></table></figure></li>
+<li>如果开了代理还是不行，可以试试将地址指向官方的。   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flutter packages pub publish --server=https://pub.dartlang.org</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h4 id="参考网站"><a href="#参考网站" class="headerlink" title="参考网站"></a>参考网站</h4><pre><code>&lt;https://edu.csdn.net/course/play/23392/265119&gt;
 &lt;https://www.jianshu.com/p/46957915a909&gt;
@@ -439,6 +432,7 @@
 &lt;https://www.jianshu.com/p/4bf045fd21f5&gt;
 &lt;https://blog.csdn.net/youtiankeng/article/details/107825986&gt;
 </code></pre>
+
       
     </div>
 
@@ -460,13 +454,13 @@
     <div id="QR" style="display: none;">
       
         <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="http://onm9ileaw.bkt.clouddn.com/pics/private/wxpay.jpeg" alt="Tony WeChat Pay"/>
+          <img id="wechat_qr" src="http://onm9ileaw.bkt.clouddn.com/pics/private/wxpay.jpeg" alt=" WeChat Pay"/>
           <p>微信打赏</p>
         </div>
       
       
         <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="http://onm9ileaw.bkt.clouddn.com/pics/private/alipay.jpeg" alt="Tony Alipay"/>
+          <img id="alipay_qr" src="http://onm9ileaw.bkt.clouddn.com/pics/private/alipay.jpeg" alt=" Alipay"/>
           <p>支付宝打赏</p>
         </div>
       
@@ -503,8 +497,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/08/24/微信开发本地调试/" rel="next" title="微信开发本地调试">
-                <i class="fa fa-chevron-left"></i> 微信开发本地调试
+              <a href="/2019/10/17/%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="next" title="字节跳动面试题">
+                <i class="fa fa-chevron-left"></i> 字节跳动面试题
               </a>
             
           </div>
@@ -513,7 +507,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/09/09/yarn和npm对比/" rel="prev" title="yarn和npm对比">
+              <a href="/2020/09/08/yarn%E5%92%8Cnpm%E5%AF%B9%E6%AF%94/" rel="prev" title="yarn和npm对比">
                 yarn和npm对比 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -578,8 +572,8 @@
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
-               alt="Tony" />
-          <p class="site-author-name" itemprop="name">Tony</p>
+               alt="" />
+          <p class="site-author-name" itemprop="name"></p>
            
               <p class="site-description motion-element" itemprop="description"></p>
            
@@ -589,7 +583,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -600,7 +594,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -611,7 +605,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -666,7 +660,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、新建插件"><span class="nav-number">1.</span> <span class="nav-text">一、新建插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、添加功能"><span class="nav-number">2.</span> <span class="nav-text">二、添加功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、android端功能新增"><span class="nav-number">3.</span> <span class="nav-text">三、android端功能新增</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、ios端功能新增"><span class="nav-number">4.</span> <span class="nav-text">四、ios端功能新增</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、发布到pub-dev"><span class="nav-number">5.</span> <span class="nav-text">五、发布到pub.dev</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#参考网站"><span class="nav-number">5.1.</span> <span class="nav-text">参考网站</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%96%B0%E5%BB%BA%E6%8F%92%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">一、新建插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%B7%BB%E5%8A%A0%E5%8A%9F%E8%83%BD"><span class="nav-number">2.</span> <span class="nav-text">二、添加功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81android%E7%AB%AF%E5%8A%9F%E8%83%BD%E6%96%B0%E5%A2%9E"><span class="nav-number">3.</span> <span class="nav-text">三、android端功能新增</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E3%80%81ios%E7%AB%AF%E5%8A%9F%E8%83%BD%E6%96%B0%E5%A2%9E"><span class="nav-number">4.</span> <span class="nav-text">四、ios端功能新增</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E5%8F%91%E5%B8%83%E5%88%B0pub-dev"><span class="nav-number">5.</span> <span class="nav-text">五、发布到pub.dev</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E7%BD%91%E7%AB%99"><span class="nav-number">5.1.</span> <span class="nav-text">参考网站</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -689,7 +683,7 @@
         <div class="copyright" >
   
   &copy;  1991 - 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

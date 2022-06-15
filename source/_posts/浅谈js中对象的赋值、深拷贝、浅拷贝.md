@@ -1,10 +1,10 @@
 ---
 title: 浅谈js中对象的赋值、深拷贝、浅拷贝
+date: 2018-10-08
 categories: JS
 tags: 
     - JS
 #description: 
-#date: 
 ---
 
 在js中，万物皆对象...

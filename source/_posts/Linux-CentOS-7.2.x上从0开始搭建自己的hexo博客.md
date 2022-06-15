@@ -1,11 +1,11 @@
 ---
 title: Linux-CentOS-7.2.x上从0开始搭建自己的hexo博客
+date: 2017-03-05
 categories: Linux
 tags: 
     - Linux
     - hexo
 #description: 
-#date: 
 ---
 
 Linux-CentOS-7.2.x上从0开始搭建自己的hexo博客

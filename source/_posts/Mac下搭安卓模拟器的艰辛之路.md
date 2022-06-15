@@ -1,11 +1,11 @@
 ---
 title: Mac下搭安卓模拟器的艰辛之路
+date: 2019-07-18
 categories: Mac
 tags: 
     - Mac
     - 模拟器
 #description: 
-#date: 
 ---
 
 需要在mac上搭建安卓模拟器，用来测试。

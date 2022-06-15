@@ -1,4 +1,14 @@
+---
+title: M1芯片Mac隐私权限不显示应用的解决办法
+date: 2022-06-15
+categories: Macos
+tags:
+- Macos
+#description:
+---
+
 初识M1，确实比较强悍，续航长还静音，但是遇到个问题，飞书和腾讯会议的麦克风和摄像头权限没法开启。
+<!-- more -->
 
 ## 表现：
 
@@ -10,7 +20,7 @@
 
 ```bash
 csrutil disable
-```  
+```
 
 ## 二、在权限db里手动插入数据
 
@@ -35,7 +45,6 @@ sudo sqlite3 ~/Library/Application\ Support/com.apple.TCC/TCC.db "INSERT or REPL
 
 #### 查看包名：
 在访达中找到应用程序文件后（一般位于应用程序），右键选择显示包内容，使用文本编辑器打开Contents/Info.plist，找到<key>CFBundleIdentifier</key>，下面一行在<string>和</string>中间的便是包名
-
 
 * 参考链接：https://blog.csdn.net/weixin_43917335/article/details/109245795
 * 参考链接：https://www.jianshu.com/p/105c88194350

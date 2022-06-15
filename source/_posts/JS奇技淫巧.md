@@ -1,10 +1,10 @@
 ---
 title: JS奇技淫巧
+date: 2017-03-05
 categories: JS
 tags: 
     - JS
 #description: 
-#date: 
 ---
 
 一些js的常用技巧

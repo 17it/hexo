@@ -1,11 +1,11 @@
 ---
 title: yarn和npm对比
+date: 2020-09-08
 categories: NODE JS
 tags: 
     - NODE
     - JS
 #description: 
-#date: 
 ---
 
 之前开发项目一直使用的npm，没出啥篓子，直到今天...

@@ -1,0 +1,828 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="打包,Lbz," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="乐必中项目打包上线流程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="乐必中项目打包上线流程">
+<meta property="og:url" content="https://17it.github.io/2018/06/22/%E4%B9%90%E5%BF%85%E4%B8%AD%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E4%B8%8A%E7%BA%BF%E6%B5%81%E7%A8%8B/index.html">
+<meta property="og:site_name" content="你不知道你不知道">
+<meta property="og:description" content="乐必中项目打包上线流程">
+<meta property="og:locale">
+<meta property="article:published_time" content="2018-06-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-15T08:31:12.353Z">
+<meta property="article:author" content="Tony">
+<meta property="article:tag" content="打包">
+<meta property="article:tag" content="Lbz">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://17it.github.io/2018/06/22/乐必中项目打包上线流程/"/>
+
+
+
+
+
+  <title> 乐必中项目打包上线流程 | 你不知道你不知道 </title>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?cf8693b35d2353f4411bb261a3042217";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">你不知道你不知道</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">17it 一起IT</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://17it.github.io/2018/06/22/%E4%B9%90%E5%BF%85%E4%B8%AD%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E4%B8%8A%E7%BA%BF%E6%B5%81%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="你不知道你不知道">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                乐必中项目打包上线流程
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-22T00:00:00+08:00">
+                2018-06-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Lbz/" itemprop="url" rel="index">
+                    <span itemprop="name">Lbz</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/2018/06/22/%E4%B9%90%E5%BF%85%E4%B8%AD%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E4%B8%8A%E7%BA%BF%E6%B5%81%E7%A8%8B/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o">本文总阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>乐必中项目打包上线流程</p>
+<span id="more"></span>
+
+<h3 id="一、gameStatic项目打包流程："><a href="#一、gameStatic项目打包流程：" class="headerlink" title="一、gameStatic项目打包流程："></a>一、gameStatic项目打包流程：</h3><h5 id="0-合并代码到master-（记得合并时候仔细检查下有没有不能提交的代码）"><a href="#0-合并代码到master-（记得合并时候仔细检查下有没有不能提交的代码）" class="headerlink" title="0.合并代码到master （记得合并时候仔细检查下有没有不能提交的代码）"></a>0.合并代码到master （记得合并时候仔细检查下有没有不能提交的代码）</h5><h5 id="1-SecureCRT连接到两台服务器（参照：http-wiki-letv-cn-pages-viewpage-action-pageId-65143852）"><a href="#1-SecureCRT连接到两台服务器（参照：http-wiki-letv-cn-pages-viewpage-action-pageId-65143852）" class="headerlink" title="1.SecureCRT连接到两台服务器（参照：http://wiki.letv.cn/pages/viewpage.action?pageId=65143852）"></a>1.SecureCRT连接到两台服务器（参照：<a target="_blank" rel="noopener" href="http://wiki.letv.cn/pages/viewpage.action?pageId=65143852">http://wiki.letv.cn/pages/viewpage.action?pageId=65143852</a>）</h5><h5 id="2-分别都cd到gameStatic目录下"><a href="#2-分别都cd到gameStatic目录下" class="headerlink" title="2.分别都cd到gameStatic目录下"></a>2.分别都cd到gameStatic目录下</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /letv/gameStatic</span><br></pre></td></tr></table></figure>
+<h5 id="3-在226上执行打包脚本（不要在159上执行）"><a href="#3-在226上执行打包脚本（不要在159上执行）" class="headerlink" title="3.在226上执行打包脚本（不要在159上执行）"></a>3.在226上执行打包脚本（不要在159上执行）</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh build.<span class="property">sh</span></span><br></pre></td></tr></table></figure>
+<h5 id="4-等待226执行完成后（切记一定要执行完成），在159服务器上执行脚本"><a href="#4-等待226执行完成后（切记一定要执行完成），在159服务器上执行脚本" class="headerlink" title="4.等待226执行完成后（切记一定要执行完成），在159服务器上执行脚本"></a>4.等待226执行完成后（切记一定要执行完成），在159服务器上执行脚本</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh 159copy.<span class="property">sh</span></span><br></pre></td></tr></table></figure>
+<h5 id="5-等159服务器脚本执行完毕，为了确保没问题，可以分别执行下面命令-，查看两台服务器上文件修改时间是否一致"><a href="#5-等159服务器脚本执行完毕，为了确保没问题，可以分别执行下面命令-，查看两台服务器上文件修改时间是否一致" class="headerlink" title="5.等159服务器脚本执行完毕，为了确保没问题，可以分别执行下面命令 ，查看两台服务器上文件修改时间是否一致"></a>5.等159服务器脚本执行完毕，为了确保没问题，可以分别执行下面命令 ，查看两台服务器上文件修改时间是否一致</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ll /letv/www</span><br></pre></td></tr></table></figure>
+<h5 id="6-可以在浏览器上分别打开：http-10-110-176-226-和-http-10-110-154-159-多刷新几次，看控制台有没有报错"><a href="#6-可以在浏览器上分别打开：http-10-110-176-226-和-http-10-110-154-159-多刷新几次，看控制台有没有报错" class="headerlink" title="6.可以在浏览器上分别打开：http://10.110.176.226/  和  http://10.110.154.159/ 多刷新几次，看控制台有没有报错"></a>6.可以在浏览器上分别打开：<a target="_blank" rel="noopener" href="http://10.110.176.226/">http://10.110.176.226/</a>  和  <a target="_blank" rel="noopener" href="http://10.110.154.159/">http://10.110.154.159/</a> 多刷新几次，看控制台有没有报错</h5><h3 id="二、storeClient项目打包流程："><a href="#二、storeClient项目打包流程：" class="headerlink" title="二、storeClient项目打包流程："></a>二、storeClient项目打包流程：</h3><h5 id="0-合并代码到master-（记得合并时候仔细检查下有没有不能提交的代码）-1"><a href="#0-合并代码到master-（记得合并时候仔细检查下有没有不能提交的代码）-1" class="headerlink" title="0.合并代码到master （记得合并时候仔细检查下有没有不能提交的代码）"></a>0.合并代码到master （记得合并时候仔细检查下有没有不能提交的代码）</h5><h5 id="1-SecureCRT连接到两台服务器（参照：http-wiki-letv-cn-pages-viewpage-action-pageId-65143852）-1"><a href="#1-SecureCRT连接到两台服务器（参照：http-wiki-letv-cn-pages-viewpage-action-pageId-65143852）-1" class="headerlink" title="1.SecureCRT连接到两台服务器（参照：http://wiki.letv.cn/pages/viewpage.action?pageId=65143852）"></a>1.SecureCRT连接到两台服务器（参照：<a target="_blank" rel="noopener" href="http://wiki.letv.cn/pages/viewpage.action?pageId=65143852">http://wiki.letv.cn/pages/viewpage.action?pageId=65143852</a>）</h5><h5 id="2-分别都cd到storeClient目录下"><a href="#2-分别都cd到storeClient目录下" class="headerlink" title="2.分别都cd到storeClient目录下"></a>2.分别都cd到storeClient目录下</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /letv/storeClient</span><br></pre></td></tr></table></figure>
+<h5 id="3-在226上执行打包脚本（不要在159上执行）-1"><a href="#3-在226上执行打包脚本（不要在159上执行）-1" class="headerlink" title="3.在226上执行打包脚本（不要在159上执行）"></a>3.在226上执行打包脚本（不要在159上执行）</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh build.<span class="property">sh</span></span><br></pre></td></tr></table></figure>
+<h5 id="4-等待226执行完成后（切记一定要执行完成），在159服务器上执行脚本-1"><a href="#4-等待226执行完成后（切记一定要执行完成），在159服务器上执行脚本-1" class="headerlink" title="4.等待226执行完成后（切记一定要执行完成），在159服务器上执行脚本"></a>4.等待226执行完成后（切记一定要执行完成），在159服务器上执行脚本</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh 159copy.<span class="property">sh</span></span><br></pre></td></tr></table></figure>
+<h5 id="5-等159服务器脚本执行完毕，为了确保没问题，可以分别执行下面命令-，查看两台服务器上文件修改时间是否一致-1"><a href="#5-等159服务器脚本执行完毕，为了确保没问题，可以分别执行下面命令-，查看两台服务器上文件修改时间是否一致-1" class="headerlink" title="5.等159服务器脚本执行完毕，为了确保没问题，可以分别执行下面命令 ，查看两台服务器上文件修改时间是否一致"></a>5.等159服务器脚本执行完毕，为了确保没问题，可以分别执行下面命令 ，查看两台服务器上文件修改时间是否一致</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ll /letv/storeClient/.<span class="property">nuxt</span>/</span><br></pre></td></tr></table></figure>
+<h5 id="6-可以在浏览器上分别打开：http-10-110-176-226-store-和-http-10-110-154-159-store-多刷新几次，看有没有报错"><a href="#6-可以在浏览器上分别打开：http-10-110-176-226-store-和-http-10-110-154-159-store-多刷新几次，看有没有报错" class="headerlink" title="6.可以在浏览器上分别打开：http://10.110.176.226/store  和  http://10.110.154.159/store 多刷新几次，看有没有报错"></a>6.可以在浏览器上分别打开：<a target="_blank" rel="noopener" href="http://10.110.176.226/store">http://10.110.176.226/store</a>  和  <a target="_blank" rel="noopener" href="http://10.110.154.159/store">http://10.110.154.159/store</a> 多刷新几次，看有没有报错</h5><h5 id="7-如果上面某个地址报错502，需要再对应服务器上走一遍下面的命令（没问题的服务器不用执行）"><a href="#7-如果上面某个地址报错502，需要再对应服务器上走一遍下面的命令（没问题的服务器不用执行）" class="headerlink" title="7.如果上面某个地址报错502，需要再对应服务器上走一遍下面的命令（没问题的服务器不用执行）"></a>7.如果上面某个地址报错502，需要再对应服务器上走一遍下面的命令（没问题的服务器不用执行）</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pm2 reload store</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://onm9ileaw.bkt.clouddn.com/pics/private/wxpay.jpeg" alt=" WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://onm9ileaw.bkt.clouddn.com/pics/private/alipay.jpeg" alt=" Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E6%89%93%E5%8C%85/" rel="tag"># 打包</a>
+          
+            <a href="/tags/Lbz/" rel="tag"># Lbz</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/13/lbz%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%B8%8EH5%E4%BA%A4%E4%BA%92sdk/" rel="next" title="lbz客户端与H5交互sdk">
+                <i class="fa fa-chevron-left"></i> lbz客户端与H5交互sdk
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/03/centos%E6%90%AD%E5%BB%BArabbitmq%EF%BC%88%E4%BA%8C%EF%BC%89/" rel="prev" title="centos搭建rabbitmq（二）">
+                centos搭建rabbitmq（二） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="" />
+          <p class="site-author-name" itemprop="name"></p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/17it?tab=repositories" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/5344903879/profile?topnav=1&wvr=6" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81gameStatic%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E6%B5%81%E7%A8%8B%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">一、gameStatic项目打包流程：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#0-%E5%90%88%E5%B9%B6%E4%BB%A3%E7%A0%81%E5%88%B0master-%EF%BC%88%E8%AE%B0%E5%BE%97%E5%90%88%E5%B9%B6%E6%97%B6%E5%80%99%E4%BB%94%E7%BB%86%E6%A3%80%E6%9F%A5%E4%B8%8B%E6%9C%89%E6%B2%A1%E6%9C%89%E4%B8%8D%E8%83%BD%E6%8F%90%E4%BA%A4%E7%9A%84%E4%BB%A3%E7%A0%81%EF%BC%89"><span class="nav-number">1.0.1.</span> <span class="nav-text">0.合并代码到master （记得合并时候仔细检查下有没有不能提交的代码）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-SecureCRT%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%B8%A4%E5%8F%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%88%E5%8F%82%E7%85%A7%EF%BC%9Ahttp-wiki-letv-cn-pages-viewpage-action-pageId-65143852%EF%BC%89"><span class="nav-number">1.0.2.</span> <span class="nav-text">1.SecureCRT连接到两台服务器（参照：http:&#x2F;&#x2F;wiki.letv.cn&#x2F;pages&#x2F;viewpage.action?pageId&#x3D;65143852）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E5%88%86%E5%88%AB%E9%83%BDcd%E5%88%B0gameStatic%E7%9B%AE%E5%BD%95%E4%B8%8B"><span class="nav-number">1.0.3.</span> <span class="nav-text">2.分别都cd到gameStatic目录下</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E5%9C%A8226%E4%B8%8A%E6%89%A7%E8%A1%8C%E6%89%93%E5%8C%85%E8%84%9A%E6%9C%AC%EF%BC%88%E4%B8%8D%E8%A6%81%E5%9C%A8159%E4%B8%8A%E6%89%A7%E8%A1%8C%EF%BC%89"><span class="nav-number">1.0.4.</span> <span class="nav-text">3.在226上执行打包脚本（不要在159上执行）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-%E7%AD%89%E5%BE%85226%E6%89%A7%E8%A1%8C%E5%AE%8C%E6%88%90%E5%90%8E%EF%BC%88%E5%88%87%E8%AE%B0%E4%B8%80%E5%AE%9A%E8%A6%81%E6%89%A7%E8%A1%8C%E5%AE%8C%E6%88%90%EF%BC%89%EF%BC%8C%E5%9C%A8159%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E6%89%A7%E8%A1%8C%E8%84%9A%E6%9C%AC"><span class="nav-number">1.0.5.</span> <span class="nav-text">4.等待226执行完成后（切记一定要执行完成），在159服务器上执行脚本</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-%E7%AD%89159%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%84%9A%E6%9C%AC%E6%89%A7%E8%A1%8C%E5%AE%8C%E6%AF%95%EF%BC%8C%E4%B8%BA%E4%BA%86%E7%A1%AE%E4%BF%9D%E6%B2%A1%E9%97%AE%E9%A2%98%EF%BC%8C%E5%8F%AF%E4%BB%A5%E5%88%86%E5%88%AB%E6%89%A7%E8%A1%8C%E4%B8%8B%E9%9D%A2%E5%91%BD%E4%BB%A4-%EF%BC%8C%E6%9F%A5%E7%9C%8B%E4%B8%A4%E5%8F%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E6%96%87%E4%BB%B6%E4%BF%AE%E6%94%B9%E6%97%B6%E9%97%B4%E6%98%AF%E5%90%A6%E4%B8%80%E8%87%B4"><span class="nav-number">1.0.6.</span> <span class="nav-text">5.等159服务器脚本执行完毕，为了确保没问题，可以分别执行下面命令 ，查看两台服务器上文件修改时间是否一致</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-%E5%8F%AF%E4%BB%A5%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8A%E5%88%86%E5%88%AB%E6%89%93%E5%BC%80%EF%BC%9Ahttp-10-110-176-226-%E5%92%8C-http-10-110-154-159-%E5%A4%9A%E5%88%B7%E6%96%B0%E5%87%A0%E6%AC%A1%EF%BC%8C%E7%9C%8B%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%9C%89%E6%B2%A1%E6%9C%89%E6%8A%A5%E9%94%99"><span class="nav-number">1.0.7.</span> <span class="nav-text">6.可以在浏览器上分别打开：http:&#x2F;&#x2F;10.110.176.226&#x2F;  和  http:&#x2F;&#x2F;10.110.154.159&#x2F; 多刷新几次，看控制台有没有报错</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81storeClient%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E6%B5%81%E7%A8%8B%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">二、storeClient项目打包流程：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#0-%E5%90%88%E5%B9%B6%E4%BB%A3%E7%A0%81%E5%88%B0master-%EF%BC%88%E8%AE%B0%E5%BE%97%E5%90%88%E5%B9%B6%E6%97%B6%E5%80%99%E4%BB%94%E7%BB%86%E6%A3%80%E6%9F%A5%E4%B8%8B%E6%9C%89%E6%B2%A1%E6%9C%89%E4%B8%8D%E8%83%BD%E6%8F%90%E4%BA%A4%E7%9A%84%E4%BB%A3%E7%A0%81%EF%BC%89-1"><span class="nav-number">2.0.1.</span> <span class="nav-text">0.合并代码到master （记得合并时候仔细检查下有没有不能提交的代码）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-SecureCRT%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%B8%A4%E5%8F%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%88%E5%8F%82%E7%85%A7%EF%BC%9Ahttp-wiki-letv-cn-pages-viewpage-action-pageId-65143852%EF%BC%89-1"><span class="nav-number">2.0.2.</span> <span class="nav-text">1.SecureCRT连接到两台服务器（参照：http:&#x2F;&#x2F;wiki.letv.cn&#x2F;pages&#x2F;viewpage.action?pageId&#x3D;65143852）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E5%88%86%E5%88%AB%E9%83%BDcd%E5%88%B0storeClient%E7%9B%AE%E5%BD%95%E4%B8%8B"><span class="nav-number">2.0.3.</span> <span class="nav-text">2.分别都cd到storeClient目录下</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E5%9C%A8226%E4%B8%8A%E6%89%A7%E8%A1%8C%E6%89%93%E5%8C%85%E8%84%9A%E6%9C%AC%EF%BC%88%E4%B8%8D%E8%A6%81%E5%9C%A8159%E4%B8%8A%E6%89%A7%E8%A1%8C%EF%BC%89-1"><span class="nav-number">2.0.4.</span> <span class="nav-text">3.在226上执行打包脚本（不要在159上执行）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-%E7%AD%89%E5%BE%85226%E6%89%A7%E8%A1%8C%E5%AE%8C%E6%88%90%E5%90%8E%EF%BC%88%E5%88%87%E8%AE%B0%E4%B8%80%E5%AE%9A%E8%A6%81%E6%89%A7%E8%A1%8C%E5%AE%8C%E6%88%90%EF%BC%89%EF%BC%8C%E5%9C%A8159%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E6%89%A7%E8%A1%8C%E8%84%9A%E6%9C%AC-1"><span class="nav-number">2.0.5.</span> <span class="nav-text">4.等待226执行完成后（切记一定要执行完成），在159服务器上执行脚本</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-%E7%AD%89159%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%84%9A%E6%9C%AC%E6%89%A7%E8%A1%8C%E5%AE%8C%E6%AF%95%EF%BC%8C%E4%B8%BA%E4%BA%86%E7%A1%AE%E4%BF%9D%E6%B2%A1%E9%97%AE%E9%A2%98%EF%BC%8C%E5%8F%AF%E4%BB%A5%E5%88%86%E5%88%AB%E6%89%A7%E8%A1%8C%E4%B8%8B%E9%9D%A2%E5%91%BD%E4%BB%A4-%EF%BC%8C%E6%9F%A5%E7%9C%8B%E4%B8%A4%E5%8F%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E6%96%87%E4%BB%B6%E4%BF%AE%E6%94%B9%E6%97%B6%E9%97%B4%E6%98%AF%E5%90%A6%E4%B8%80%E8%87%B4-1"><span class="nav-number">2.0.6.</span> <span class="nav-text">5.等159服务器脚本执行完毕，为了确保没问题，可以分别执行下面命令 ，查看两台服务器上文件修改时间是否一致</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-%E5%8F%AF%E4%BB%A5%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8A%E5%88%86%E5%88%AB%E6%89%93%E5%BC%80%EF%BC%9Ahttp-10-110-176-226-store-%E5%92%8C-http-10-110-154-159-store-%E5%A4%9A%E5%88%B7%E6%96%B0%E5%87%A0%E6%AC%A1%EF%BC%8C%E7%9C%8B%E6%9C%89%E6%B2%A1%E6%9C%89%E6%8A%A5%E9%94%99"><span class="nav-number">2.0.7.</span> <span class="nav-text">6.可以在浏览器上分别打开：http:&#x2F;&#x2F;10.110.176.226&#x2F;store  和  http:&#x2F;&#x2F;10.110.154.159&#x2F;store 多刷新几次，看有没有报错</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-%E5%A6%82%E6%9E%9C%E4%B8%8A%E9%9D%A2%E6%9F%90%E4%B8%AA%E5%9C%B0%E5%9D%80%E6%8A%A5%E9%94%99502%EF%BC%8C%E9%9C%80%E8%A6%81%E5%86%8D%E5%AF%B9%E5%BA%94%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E8%B5%B0%E4%B8%80%E9%81%8D%E4%B8%8B%E9%9D%A2%E7%9A%84%E5%91%BD%E4%BB%A4%EF%BC%88%E6%B2%A1%E9%97%AE%E9%A2%98%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8D%E7%94%A8%E6%89%A7%E8%A1%8C%EF%BC%89"><span class="nav-number">2.0.8.</span> <span class="nav-text">7.如果上面某个地址报错502，需要再对应服务器上走一遍下面的命令（没问题的服务器不用执行）</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  1991 - 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Tony</span>
+</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user">本站访客数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">本站总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "ea7464b38e634abca0f1f99c4189f526",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

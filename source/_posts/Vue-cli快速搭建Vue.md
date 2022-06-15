@@ -1,11 +1,11 @@
 ---
 title: Vue-cli快速搭建Vue
+date: 2017-03-05
 categories: JS
 tags: 
     - Vue
     - Vue-cli
 #description: 
-#date: 
 ---
 
 Vue + webpack模式是目前使用很广泛的前端解决方案，而Vue-cli脚手架能快速帮你搭建Vue项目框架，让你更专注于业务需求开发。下面介绍vue-cli的安装步骤。

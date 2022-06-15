@@ -1,11 +1,11 @@
 ---
 title: 谈谈NODE_ENV
+date: 2018-10-28
 categories: NODE JS
 tags: 
     - NODE
     - JS
 #description: 
-#date: 
 ---
 
 在开发项目的时候，不可避免的就是各个环境（正式/开发/测试）对应不同的配置信息。我们选择在构建项目的时候根据不同的命令（NODE_ENV）让代码引用不同的配置，而不是建不同的分支或者在服务器上修改配置文件。

@@ -1,12 +1,12 @@
 ---
 title: Linux-CentOS-7.2.x下安装mysql（Navicat）
+date: 2017-03-05
 categories: Linux
 tags: 
     - Linux
     - mysql
     - Navicat
 #description: 
-#date: 
 ---
 
 Linux-CentOS-7.2.x上安装mysql

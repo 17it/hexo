@@ -1,10 +1,10 @@
 ---
 title: JavaScript学习笔记
+date: 2017-03-05
 categories: JS
 tags: 
     - JS
 #description: 
-#date: 
 ---
 
 JS的一些学习笔记

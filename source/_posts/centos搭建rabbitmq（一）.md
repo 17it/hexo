@@ -1,5 +1,6 @@
 ---
 title: centos搭建rabbitmq（一）
+date: 2018-09-03
 categories: Nginx
 tags: 
     - Linux
@@ -7,7 +8,6 @@ tags:
     - NodeJS
     - RabbitMQ
 #description: 
-#date: 
 ---
 
 centos搭建rabbitmq: centos 6

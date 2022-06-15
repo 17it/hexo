@@ -1,5 +1,6 @@
 ---
 title: lbz客户端与H5交互sdk
+date: 2018-03-13
 categories: H5
 tags: 
     - H5
@@ -7,7 +8,6 @@ tags:
     - Android
     - sdk
 #description: 
-#date: 
 ---
 
 lbz客户端与H5交互sdk定义文档

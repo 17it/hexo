@@ -1,10 +1,10 @@
 ---
 title: 原生JS的debounce和throttle
+date: 2017-03-05
 categories: JS
 tags: 
     - JS
 #description: 
-#date: 
 ---
 
 说说原生JS中的debounce和throttle

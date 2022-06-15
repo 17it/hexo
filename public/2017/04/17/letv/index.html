@@ -1,0 +1,830 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="dialry," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="components里form和table新加的功能以及vue route">
+<meta property="og:type" content="article">
+<meta property="og:title" content="letv">
+<meta property="og:url" content="https://17it.github.io/2017/04/17/letv/index.html">
+<meta property="og:site_name" content="你不知道你不知道">
+<meta property="og:description" content="components里form和table新加的功能以及vue route">
+<meta property="og:locale">
+<meta property="og:image" content="http://onm9ileaw.bkt.clouddn.com/letv/11.png">
+<meta property="og:image" content="http://onm9ileaw.bkt.clouddn.com/letv/22.png">
+<meta property="og:image" content="http://onm9ileaw.bkt.clouddn.com/letv/33.png">
+<meta property="og:image" content="http://onm9ileaw.bkt.clouddn.com/letv/1.png">
+<meta property="og:image" content="http://onm9ileaw.bkt.clouddn.com/letv/3.png">
+<meta property="og:image" content="http://onm9ileaw.bkt.clouddn.com/letv/4.png">
+<meta property="article:published_time" content="2017-04-16T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-15T08:36:35.010Z">
+<meta property="article:author" content="Tony">
+<meta property="article:tag" content="dialry">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://onm9ileaw.bkt.clouddn.com/letv/11.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://17it.github.io/2017/04/17/letv/"/>
+
+
+
+
+
+  <title> letv | 你不知道你不知道 </title>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?cf8693b35d2353f4411bb261a3042217";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">你不知道你不知道</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">17it 一起IT</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://17it.github.io/2017/04/17/letv/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="你不知道你不知道">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                letv
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-17T00:00:00+08:00">
+                2017-04-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/2017/04/17/letv/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o">本文总阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="components里form和table新加的功能以及vue-route"><a href="#components里form和table新加的功能以及vue-route" class="headerlink" title="components里form和table新加的功能以及vue route"></a>components里form和table新加的功能以及vue route</h3><span id="more"></span>
+
+<h3 id="一、只url中的参数改变时，vue-route的使用"><a href="#一、只url中的参数改变时，vue-route的使用" class="headerlink" title="一、只url中的参数改变时，vue route的使用"></a>一、只url中的参数改变时，vue route的使用</h3><ul>
+<li>问题描述：vue单页应用中，点击左侧栏菜单，当仅url参数改变，路径不变时，默认不会走主组件（Logic）里面的create方法的，会导致页面不能刷新（或者获取新数据）。</li>
+<li>解决办法：可以在主组件（Logic）里面挂上vue route的钩子，在里面捕获参数的改变，然后改页面state里面的值，来触发对应的刷新（或者获取新数据）的方法。</li>
+</ul>
+<h4 id="1-在页面里的主组件Logic里面挂上vue-route的钩子函数-beforeRouteUpdate-当页面url中的参数变化时，会进入这里。在函数里面调用state里的方法-pageList-resetState。"><a href="#1-在页面里的主组件Logic里面挂上vue-route的钩子函数-beforeRouteUpdate-当页面url中的参数变化时，会进入这里。在函数里面调用state里的方法-pageList-resetState。" class="headerlink" title="1.在页面里的主组件Logic里面挂上vue route的钩子函数 beforeRouteUpdate,当页面url中的参数变化时，会进入这里。在函数里面调用state里的方法 pageList_resetState。"></a>1.在页面里的主组件Logic里面挂上vue route的钩子函数 beforeRouteUpdate,当页面url中的参数变化时，会进入这里。在函数里面调用state里的方法 pageList_resetState。</h4><img src="http://onm9ileaw.bkt.clouddn.com/letv/11.png">
+#### 2.在state.js里的方法pageList_resetState中改变面包屑 和 改变state的值（如pageNum,hasParamChange）.
+<img src="http://onm9ileaw.bkt.clouddn.com/letv/22.png">
+#### 3.在页面里对应的组件中监听state的值改变，再调用对应的ajax获取新数据。
+<img src="http://onm9ileaw.bkt.clouddn.com/letv/33.png">
+
+<h3 id="二、form组件扩展"><a href="#二、form组件扩展" class="headerlink" title="二、form组件扩展"></a>二、form组件扩展</h3><h4 id="1-input后支持增加颜色选择器"><a href="#1-input后支持增加颜色选择器" class="headerlink" title="1.input后支持增加颜色选择器"></a>1.input后支持增加颜色选择器</h4><ul>
+<li>示例：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">prop</span>:’bgColor’,</span><br><span class="line">    <span class="attr">type</span>:’colorPicker’,</span><br><span class="line">    <span class="attr">colorChange</span>: <span class="keyword">function</span>(<span class="params"></span>)&#123;&#125;,</span><br><span class="line">    <span class="attr">colorPickerStyle</span>: <span class="string">&#x27;line-height: normal;position: absolute;font-size: 0;margin-left:10px;&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>效果图：<img src="http://onm9ileaw.bkt.clouddn.com/letv/1.png"></li>
+</ul>
+<h4 id="2-form表单支持检测链接类型的输入框"><a href="#2-form表单支持检测链接类型的输入框" class="headerlink" title="2.form表单支持检测链接类型的输入框"></a>2.form表单支持检测链接类型的输入框</h4><ul>
+<li>示例:<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> preObj = &#123;</span><br><span class="line">    <span class="attr">key</span>: <span class="string">&#x27;movie&#x27;</span>,</span><br><span class="line">    <span class="attr">value</span>: <span class="string">&#x27;http://movie.le.com&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="attr">attributes</span>:[</span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr">prop</span>: <span class="string">&#x27;publishAddress&#x27;</span>,</span><br><span class="line">    <span class="attr">label</span>: <span class="string">&#x27;发布地址&#x27;</span>,</span><br><span class="line">    <span class="attr">type</span>: <span class="string">&#x27;require_checkUrl&#x27;</span>,</span><br><span class="line">    <span class="attr">placeholder</span>: <span class="string">&#x27;页面URL&#x27;</span>,</span><br><span class="line">    <span class="attr">style</span>: <span class="string">&#x27;width:370px;margin-right:10px;&#x27;</span>,</span><br><span class="line">    <span class="attr">preLabel</span>: preObj</span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure></li>
+<li>效果图：<img src="http://onm9ileaw.bkt.clouddn.com/letv/3.png"></li>
+</ul>
+<h3 id="三、table组件扩展"><a href="#三、table组件扩展" class="headerlink" title="三、table组件扩展"></a>三、table组件扩展</h3><h4 id="1-table里按钮支持自定义样式"><a href="#1-table里按钮支持自定义样式" class="headerlink" title="1.table里按钮支持自定义样式"></a>1.table里按钮支持自定义样式</h4><p>示例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">attributes</span>:[</span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr">prop</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    <span class="attr">title</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    <span class="attr">value</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">disabled</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="attr">onclick</span>: <span class="variable language_">this</span>.<span class="property">closeStatus</span>,</span><br><span class="line">    <span class="attr">style</span>: <span class="string">&#x27;color:red&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h4 id="2-table里普通显示文字支持自定义样式"><a href="#2-table里普通显示文字支持自定义样式" class="headerlink" title="2.table里普通显示文字支持自定义样式"></a>2.table里普通显示文字支持自定义样式</h4><h4 id="3-table的custom类型支持传入disabled"><a href="#3-table的custom类型支持传入disabled" class="headerlink" title="3.table的custom类型支持传入disabled"></a>3.table的custom类型支持传入disabled</h4><p>示例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">attributes</span>:[&#123;</span><br><span class="line">    <span class="attr">prop</span>: <span class="string">&#x27;modManage&#x27;</span>,</span><br><span class="line">    <span class="attr">label</span>: <span class="string">&#x27;模块管理&#x27;</span>,</span><br><span class="line">    <span class="attr">type</span>: <span class="string">&#x27;ifelsetext&#x27;</span>,</span><br><span class="line">    <span class="attr">width</span>: <span class="string">&#x27;100&#x27;</span>,</span><br><span class="line">    <span class="attr">options</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">    	    <span class="attr">prop</span>: <span class="string">&#x27;isEditing&#x27;</span>,</span><br><span class="line">        	<span class="attr">value</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">style</span>: <span class="string">&#x27;color:blue;cursor:pointer;text-align:center&#x27;</span>,</span><br><span class="line">            <span class="attr">onclick</span>: <span class="variable language_">this</span>.<span class="property">manageModule</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">        	<span class="attr">prop</span>: <span class="string">&#x27;isEditing&#x27;</span>,</span><br><span class="line">            <span class="attr">value</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="attr">style</span>: <span class="string">&#x27;color:red;cursor:pointer;text-align:center&#x27;</span>,</span><br><span class="line">            <span class="attr">onclick</span>: <span class="variable language_">this</span>.<span class="property">unlockPage</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure>
+<h4 id="4-table里支持列排序"><a href="#4-table里支持列排序" class="headerlink" title="4.table里支持列排序"></a>4.table里支持列排序</h4><p>示例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">attributes</span>: [</span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr">prop</span>: <span class="string">&#x27;id&#x27;</span>,</span><br><span class="line">    <span class="attr">label</span>: <span class="string">&#x27;页面ID&#x27;</span>,</span><br><span class="line">    <span class="attr">width</span>: <span class="string">&#x27;100&#x27;</span>,</span><br><span class="line">    <span class="attr">sortable</span>: <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h4 id="5-table新增ifelsetext类型"><a href="#5-table新增ifelsetext类型" class="headerlink" title="5.table新增ifelsetext类型"></a>5.table新增ifelsetext类型</h4><p>示例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">attributes</span>:[&#123;</span><br><span class="line">    <span class="attr">prop</span>: <span class="string">&#x27;modManage&#x27;</span>,</span><br><span class="line">    <span class="attr">label</span>: <span class="string">&#x27;模块管理&#x27;</span>,</span><br><span class="line">    <span class="attr">type</span>: <span class="string">&#x27;ifelsetext&#x27;</span>,</span><br><span class="line">    <span class="attr">width</span>: <span class="string">&#x27;100&#x27;</span>,</span><br><span class="line">    <span class="attr">options</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">    	    <span class="attr">prop</span>: <span class="string">&#x27;isEditing&#x27;</span>,</span><br><span class="line">        	<span class="attr">value</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">style</span>: <span class="string">&#x27;color:blue;cursor:pointer;text-align:center&#x27;</span>,</span><br><span class="line">            <span class="attr">onclick</span>: <span class="variable language_">this</span>.<span class="property">manageModule</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">        	<span class="attr">prop</span>: <span class="string">&#x27;isEditing&#x27;</span>,</span><br><span class="line">            <span class="attr">value</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="attr">style</span>: <span class="string">&#x27;color:red;cursor:pointer;text-align:center&#x27;</span>,</span><br><span class="line">            <span class="attr">onclick</span>: <span class="variable language_">this</span>.<span class="property">unlockPage</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>效果图：<img src="http://onm9ileaw.bkt.clouddn.com/letv/4.png"></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://onm9ileaw.bkt.clouddn.com/pics/private/wxpay.jpeg" alt=" WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://onm9ileaw.bkt.clouddn.com/pics/private/alipay.jpeg" alt=" Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/dialry/" rel="tag"># dialry</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/05/Aliyun+Nginx%E9%83%A8%E7%BD%B2%E7%BD%91%E7%AB%99/" rel="next" title="Aliyun+Nginx部署网站">
+                <i class="fa fa-chevron-left"></i> Aliyun+Nginx部署网站
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/18/%E5%AE%9E%E7%94%A8-css%E5%AE%B9%E5%99%A8%E5%9E%82%E7%9B%B4%E6%B0%B4%E5%B9%B3%E5%B1%85%E4%B8%AD/" rel="prev" title="css容器垂直水平居中">
+                css容器垂直水平居中 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="" />
+          <p class="site-author-name" itemprop="name"></p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/17it?tab=repositories" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/5344903879/profile?topnav=1&wvr=6" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#components%E9%87%8Cform%E5%92%8Ctable%E6%96%B0%E5%8A%A0%E7%9A%84%E5%8A%9F%E8%83%BD%E4%BB%A5%E5%8F%8Avue-route"><span class="nav-number">1.</span> <span class="nav-text">components里form和table新加的功能以及vue route</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%8F%AAurl%E4%B8%AD%E7%9A%84%E5%8F%82%E6%95%B0%E6%94%B9%E5%8F%98%E6%97%B6%EF%BC%8Cvue-route%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">一、只url中的参数改变时，vue route的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%9C%A8%E9%A1%B5%E9%9D%A2%E9%87%8C%E7%9A%84%E4%B8%BB%E7%BB%84%E4%BB%B6Logic%E9%87%8C%E9%9D%A2%E6%8C%82%E4%B8%8Avue-route%E7%9A%84%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0-beforeRouteUpdate-%E5%BD%93%E9%A1%B5%E9%9D%A2url%E4%B8%AD%E7%9A%84%E5%8F%82%E6%95%B0%E5%8F%98%E5%8C%96%E6%97%B6%EF%BC%8C%E4%BC%9A%E8%BF%9B%E5%85%A5%E8%BF%99%E9%87%8C%E3%80%82%E5%9C%A8%E5%87%BD%E6%95%B0%E9%87%8C%E9%9D%A2%E8%B0%83%E7%94%A8state%E9%87%8C%E7%9A%84%E6%96%B9%E6%B3%95-pageList-resetState%E3%80%82"><span class="nav-number">2.1.</span> <span class="nav-text">1.在页面里的主组件Logic里面挂上vue route的钩子函数 beforeRouteUpdate,当页面url中的参数变化时，会进入这里。在函数里面调用state里的方法 pageList_resetState。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81form%E7%BB%84%E4%BB%B6%E6%89%A9%E5%B1%95"><span class="nav-number">3.</span> <span class="nav-text">二、form组件扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-input%E5%90%8E%E6%94%AF%E6%8C%81%E5%A2%9E%E5%8A%A0%E9%A2%9C%E8%89%B2%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">3.1.</span> <span class="nav-text">1.input后支持增加颜色选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-form%E8%A1%A8%E5%8D%95%E6%94%AF%E6%8C%81%E6%A3%80%E6%B5%8B%E9%93%BE%E6%8E%A5%E7%B1%BB%E5%9E%8B%E7%9A%84%E8%BE%93%E5%85%A5%E6%A1%86"><span class="nav-number">3.2.</span> <span class="nav-text">2.form表单支持检测链接类型的输入框</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81table%E7%BB%84%E4%BB%B6%E6%89%A9%E5%B1%95"><span class="nav-number">4.</span> <span class="nav-text">三、table组件扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-table%E9%87%8C%E6%8C%89%E9%92%AE%E6%94%AF%E6%8C%81%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F"><span class="nav-number">4.1.</span> <span class="nav-text">1.table里按钮支持自定义样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-table%E9%87%8C%E6%99%AE%E9%80%9A%E6%98%BE%E7%A4%BA%E6%96%87%E5%AD%97%E6%94%AF%E6%8C%81%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F"><span class="nav-number">4.2.</span> <span class="nav-text">2.table里普通显示文字支持自定义样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-table%E7%9A%84custom%E7%B1%BB%E5%9E%8B%E6%94%AF%E6%8C%81%E4%BC%A0%E5%85%A5disabled"><span class="nav-number">4.3.</span> <span class="nav-text">3.table的custom类型支持传入disabled</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-table%E9%87%8C%E6%94%AF%E6%8C%81%E5%88%97%E6%8E%92%E5%BA%8F"><span class="nav-number">4.4.</span> <span class="nav-text">4.table里支持列排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-table%E6%96%B0%E5%A2%9Eifelsetext%E7%B1%BB%E5%9E%8B"><span class="nav-number">4.5.</span> <span class="nav-text">5.table新增ifelsetext类型</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  1991 - 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Tony</span>
+</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user">本站访客数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">本站总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "ea7464b38e634abca0f1f99c4189f526",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

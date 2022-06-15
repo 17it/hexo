@@ -1,11 +1,11 @@
 ---
 title: flutter插件开发实践
+date: 2020-08-24
 categories: flutter
 tags: 
     - flutter
     - plugin
-#description: 
-#date: 
+#description:
 ---
 
 记flutter插件开发实践过程。官方中文文档：https://flutterchina.club/developing-packages/，官方文档：https://flutter.dev/docs/development/packages-and-plugins/developing-packages

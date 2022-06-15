@@ -1,11 +1,11 @@
 ---
 title: Aliyun+Nginx部署网站
+date: 2017-03-05
 categories: Nginx
 tags: 
     - Aliyun
     - Nginx
 #description: 
-#date: 
 ---
 
 从零开始基于阿里云服务器和nginx搭建网站
