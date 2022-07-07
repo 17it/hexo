@@ -1,0 +1,848 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="CI/CD,GIT," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="husky+lint-staged实现代码提交前校验">
+<meta property="og:type" content="article">
+<meta property="og:title" content="husky+lint-staged实现代码提交前校验">
+<meta property="og:url" content="https://17it.github.io/2022/07/08/husky+lint-staged%E5%AE%9E%E7%8E%B0%E4%BB%A3%E7%A0%81%E6%8F%90%E4%BA%A4%E5%89%8D%E6%A0%A1%E9%AA%8C/index.html">
+<meta property="og:site_name" content="你不知道你不知道">
+<meta property="og:description" content="husky+lint-staged实现代码提交前校验">
+<meta property="og:locale">
+<meta property="article:published_time" content="2022-07-07T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-07-07T17:36:36.882Z">
+<meta property="article:author" content="Tony">
+<meta property="article:tag" content="CI&#x2F;CD">
+<meta property="article:tag" content="GIT">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://17it.github.io/2022/07/08/husky+lint-staged实现代码提交前校验/"/>
+
+
+
+
+
+  <title> husky+lint-staged实现代码提交前校验 | 你不知道你不知道 </title>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?cf8693b35d2353f4411bb261a3042217";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">你不知道你不知道</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">17it 一起IT</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://17it.github.io/2022/07/08/husky+lint-staged%E5%AE%9E%E7%8E%B0%E4%BB%A3%E7%A0%81%E6%8F%90%E4%BA%A4%E5%89%8D%E6%A0%A1%E9%AA%8C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="你不知道你不知道">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                husky+lint-staged实现代码提交前校验
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-07-08T00:00:00+08:00">
+                2022-07-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/GIT/" itemprop="url" rel="index">
+                    <span itemprop="name">GIT</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/2022/07/08/husky+lint-staged%E5%AE%9E%E7%8E%B0%E4%BB%A3%E7%A0%81%E6%8F%90%E4%BA%A4%E5%89%8D%E6%A0%A1%E9%AA%8C/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o">本文总阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>husky+lint-staged实现代码提交前校验</p>
+<span id="more"></span>
+<p>依赖：此文依赖于《eslint实践》和《stylelint实践》，假设项目里已经加上了eslint和stylelint的功能~</p>
+<h4 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h4><ul>
+<li>husky: husky是一个git hook工具，可以帮助我们触发git提交的各个阶段：pre-commit、commitmsg、pre-push等</li>
+<li>lint-staged: husky可以实现在pre-commit时校验代码，但整个项目校验会很慢，lint-staged能够让lint只检测暂存区的文件，所以速度很快</li>
+</ul>
+<h4 id="二、husky"><a href="#二、husky" class="headerlink" title="二、husky"></a>二、husky</h4><h5 id="1-安装husky"><a href="#1-安装husky" class="headerlink" title="1.安装husky"></a>1.安装husky</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install husky -D</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-下面命令第一次执行一次就行"><a href="#2-下面命令第一次执行一次就行" class="headerlink" title="2.下面命令第一次执行一次就行"></a>2.下面命令第一次执行一次就行</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm set-script prepare <span class="string">&quot;husky install&quot;</span></span><br><span class="line">npm run prepare</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-在package-json里面添加lint命令（下例中添加了eslint和stylelint）"><a href="#3-在package-json里面添加lint命令（下例中添加了eslint和stylelint）" class="headerlink" title="3.在package.json里面添加lint命令（下例中添加了eslint和stylelint）"></a>3.在package.json里面添加lint命令（下例中添加了eslint和stylelint）</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">  <span class="string">&quot;lint&quot;</span>: <span class="string">&quot;eslint --fix --ext .js,.vue ./src&quot;</span>,</span><br><span class="line">  <span class="string">&quot;lintcss&quot;</span>: <span class="string">&quot;stylelint src/**/*.&#123;scss,vue&#125; --fix --custom-syntax postcss-html&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-初始化husky"><a href="#4-初始化husky" class="headerlink" title="4.初始化husky"></a>4.初始化husky</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx husky add .husky/pre-commit <span class="string">&quot;npm test&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>执行完这步，我们会发现在项目根目录下会生存一个新的目录 .husky，并且目录下会生成一个文件 pre-commit，文件里有一条命令 npm test。<br>其实到此，我们已经完成了husky的安装和初始化，也就是现在我们就可以验证husky了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&#x27;some message&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>执行上面git命令，紧接着，我们在终端会看到在commit之前会先执行”npm test”。</p>
+<h5 id="5-修改-husky-x2F-pre-commit-里命令”npm-test”为如下lint命令"><a href="#5-修改-husky-x2F-pre-commit-里命令”npm-test”为如下lint命令" class="headerlink" title="5.修改 .husky&#x2F;pre-commit 里命令”npm test”为如下lint命令"></a>5.修改 .husky&#x2F;pre-commit 里命令”npm test”为如下lint命令</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm run lint</span><br><span class="line">npm run lintcss</span><br></pre></td></tr></table></figure>
+<p>再次执行git commit -m ‘xxx’，此时会先npm run lint校验js，然后 npm run lintcss校验scss\css\sass等，如果有书写不规范，会提示失败，终止commit操作。</p>
+<h4 id="三、lint-staged"><a href="#三、lint-staged" class="headerlink" title="三、lint-staged"></a>三、lint-staged</h4><p>上面已经实现了git commit之前对css和js进行书写规范校验，但是有个弊端：每次commit之前都会校验整个项目下的文件（当然排除.eslitignore和.stylelintignore里排除掉的），所以我们就需要借助 lint-staged，让其只校验本次有更改的文件，也就是本次git stage的文件。</p>
+<h5 id="1-安装-lint-staged"><a href="#1-安装-lint-staged" class="headerlink" title="1.安装 lint-staged"></a>1.安装 lint-staged</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install lint-staged --save-dev</span><br></pre></td></tr></table></figure>
+
+<p><em>** 这里可能会出现错误提示『Cannot use import statement outside a module』，原因是因为默认安装的 lint-staged是 13.x版本，此版本需要nodejs版本为 12.20.x以上，而本地node版本为 12.14.1 **</em><br><em>** 对lint-staged降级即可，最后实验出node 12.14.1环境下可以用的版本为 11.x，参照：<a target="_blank" rel="noopener" href="https://github.com/okonet/lint-staged/issues/1084">https://github.com/okonet/lint-staged/issues/1084</a> **</em></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install lint-staged@11 --save-dev</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-package-json里配置-lint-staged"><a href="#2-package-json里配置-lint-staged" class="headerlink" title="2.package.json里配置 lint-staged"></a>2.package.json里配置 lint-staged</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;lint-staged&quot;</span>: &#123;</span><br><span class="line">  <span class="string">&quot;*.&#123;js,vue&#125;&quot;</span>: [</span><br><span class="line">    <span class="string">&quot;eslint --fix&quot;</span>,</span><br><span class="line">    <span class="string">&quot;git add&quot;</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="string">&quot;*.&#123;scss,vue&#125;&quot;</span>: [</span><br><span class="line">    <span class="string">&quot;stylelint --custom-syntax postcss-html&quot;</span>,</span><br><span class="line">    <span class="string">&quot;git add&quot;</span></span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-修改-husky-x2F-pre-commit-为如下命令"><a href="#3-修改-husky-x2F-pre-commit-为如下命令" class="headerlink" title="3.修改 .husky&#x2F;pre-commit 为如下命令"></a>3.修改 .husky&#x2F;pre-commit 为如下命令</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx lint-staged</span><br></pre></td></tr></table></figure>
+
+<p>至此，再次git commit的时候，eslit和stylelint就只会校验本次修改的文件，大大提升校验速度。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://onm9ileaw.bkt.clouddn.com/pics/private/wxpay.jpeg" alt=" WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://onm9ileaw.bkt.clouddn.com/pics/private/alipay.jpeg" alt=" Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CI-CD/" rel="tag"># CI/CD</a>
+          
+            <a href="/tags/GIT/" rel="tag"># GIT</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2022/07/08/stylelint%E5%AE%9E%E8%B7%B5/" rel="next" title="stylelint实践">
+                <i class="fa fa-chevron-left"></i> stylelint实践
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2022/07/08/eslint%E5%AE%9E%E8%B7%B5/" rel="prev" title="eslint实践">
+                eslint实践 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="" />
+          <p class="site-author-name" itemprop="name"></p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/17it?tab=repositories" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/5344903879/profile?topnav=1&wvr=6" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">一、概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E3%80%81husky"><span class="nav-number">2.</span> <span class="nav-text">二、husky</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85husky"><span class="nav-number">2.1.</span> <span class="nav-text">1.安装husky</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E4%B8%8B%E9%9D%A2%E5%91%BD%E4%BB%A4%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%89%A7%E8%A1%8C%E4%B8%80%E6%AC%A1%E5%B0%B1%E8%A1%8C"><span class="nav-number">2.2.</span> <span class="nav-text">2.下面命令第一次执行一次就行</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E5%9C%A8package-json%E9%87%8C%E9%9D%A2%E6%B7%BB%E5%8A%A0lint%E5%91%BD%E4%BB%A4%EF%BC%88%E4%B8%8B%E4%BE%8B%E4%B8%AD%E6%B7%BB%E5%8A%A0%E4%BA%86eslint%E5%92%8Cstylelint%EF%BC%89"><span class="nav-number">2.3.</span> <span class="nav-text">3.在package.json里面添加lint命令（下例中添加了eslint和stylelint）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-%E5%88%9D%E5%A7%8B%E5%8C%96husky"><span class="nav-number">2.4.</span> <span class="nav-text">4.初始化husky</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-%E4%BF%AE%E6%94%B9-husky-x2F-pre-commit-%E9%87%8C%E5%91%BD%E4%BB%A4%E2%80%9Dnpm-test%E2%80%9D%E4%B8%BA%E5%A6%82%E4%B8%8Blint%E5%91%BD%E4%BB%A4"><span class="nav-number">2.5.</span> <span class="nav-text">5.修改 .husky&#x2F;pre-commit 里命令”npm test”为如下lint命令</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E3%80%81lint-staged"><span class="nav-number">3.</span> <span class="nav-text">三、lint-staged</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85-lint-staged"><span class="nav-number">3.1.</span> <span class="nav-text">1.安装 lint-staged</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-package-json%E9%87%8C%E9%85%8D%E7%BD%AE-lint-staged"><span class="nav-number">3.2.</span> <span class="nav-text">2.package.json里配置 lint-staged</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E4%BF%AE%E6%94%B9-husky-x2F-pre-commit-%E4%B8%BA%E5%A6%82%E4%B8%8B%E5%91%BD%E4%BB%A4"><span class="nav-number">3.3.</span> <span class="nav-text">3.修改 .husky&#x2F;pre-commit 为如下命令</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  1991 - 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Tony</span>
+</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user">本站访客数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">本站总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "ea7464b38e634abca0f1f99c4189f526",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

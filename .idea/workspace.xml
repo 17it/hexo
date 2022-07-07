@@ -2,141 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cd7c5124-3584-4085-88dd-1e4f4ef75fbc" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/public/categories/Macos/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/tags/Macos/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/eslint实践.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/husky+lint-staged实现代码提交前校验.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/stylelint实践.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/db.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2022/06/14/Aliyun+Nginx部署网站/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2022/06/14/Aliyun+Nginx部署网站/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2022/06/14/H5页面实现直播/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2022/06/14/H5页面实现直播/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2022/06/14/Hello-world/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2022/06/14/Hello-world/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2022/06/14/Html5-ReplaceState实现详情页到列表页的无刷新且回到上次位置/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2022/06/14/Html5-ReplaceState实现详情页到列表页的无刷新且回到上次位置/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2022/06/14/JS奇技淫巧/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2022/06/14/JS奇技淫巧/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2022/06/14/JavaScript学习笔记/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2022/06/14/JavaScript学习笔记/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2022/06/14/Linux-CentOS-7.2.x上从0开始搭建自己的hexo博客/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2022/06/14/Linux-CentOS-7.2.x上从0开始搭建自己的hexo博客/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2022/06/14/Linux-CentOS-7.2.x下安装mysql/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2022/06/14/Linux-CentOS-7.2.x下安装mysql/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2022/06/14/M1芯片Mac隐私权限不显示应用的解决办法/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2022/06/14/M1芯片Mac隐私权限不显示应用的解决办法/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2022/06/14/Mac下搭安卓模拟器的艰辛之路/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2022/06/14/Mac下搭安卓模拟器的艰辛之路/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2022/06/14/Vue-cli快速搭建Vue/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2022/06/14/Vue-cli快速搭建Vue/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2022/06/14/centos搭建rabbitmq（一）/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2022/06/14/centos搭建rabbitmq（一）/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2022/06/14/centos搭建rabbitmq（二）/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2022/06/14/centos搭建rabbitmq（二）/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2022/06/14/flutter插件开发实践/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2022/06/14/flutter插件开发实践/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2022/06/14/lbz客户端与H5交互sdk/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2022/06/14/lbz客户端与H5交互sdk/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2022/06/14/proxy代理/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2022/06/14/proxy代理/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2022/06/14/yarn和npm对比/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2022/06/14/yarn和npm对比/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2022/06/14/习题/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2022/06/14/习题/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2022/06/14/从0开始搭建日志分析系统（一）/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2022/06/14/从0开始搭建日志分析系统（一）/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2022/06/14/从0开始搭建日志分析系统（三）/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2022/06/14/从0开始搭建日志分析系统（三）/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2022/06/14/从0开始搭建日志分析系统（二）/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2022/06/14/从0开始搭建日志分析系统（二）/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2022/06/14/全国省市县三级地址联动js/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2022/06/14/全国省市县三级地址联动js/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2022/06/14/几种JS里数组去重方法比较/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2022/06/14/几种JS里数组去重方法比较/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2022/06/14/原生JS的debounce和throttle/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2022/06/14/原生JS的debounce和throttle/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2022/06/14/多table滚动联动/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2022/06/14/多table滚动联动/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2022/06/14/字节跳动面试题/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2022/06/14/字节跳动面试题/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2022/06/14/实用-css容器垂直水平居中/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2022/06/14/实用-css容器垂直水平居中/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2022/06/14/微信开发本地调试/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2022/06/14/微信开发本地调试/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2022/06/14/正则/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2022/06/14/正则/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2022/06/14/水滴筹笔试题/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2022/06/14/水滴筹笔试题/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2022/06/14/浅谈js中对象的赋值、深拷贝、浅拷贝/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2022/06/14/浅谈js中对象的赋值、深拷贝、浅拷贝/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2022/06/14/让js文件支持cmd、node、script标签方式引用/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2022/06/14/让js文件支持cmd、node、script标签方式引用/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2022/06/14/谈谈css里面的一些小知识/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2022/06/14/谈谈css里面的一些小知识/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2022/06/14/谈谈node_env/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2022/06/14/谈谈node_env/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/about/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/about/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/archives/2022/06/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/2022/06/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/archives/2022/06/page/2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/2022/06/page/2/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/archives/2022/06/page/3/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/2022/06/page/3/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/archives/2022/06/page/4/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/2022/06/page/4/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/archives/2022/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/2022/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/archives/2022/page/2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/2022/page/2/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/archives/2022/page/3/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/2022/page/3/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/archives/2022/page/4/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/2022/page/4/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/archives/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/archives/page/2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/page/2/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/archives/page/3/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/page/3/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/archives/page/4/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/page/4/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/categories/CSS/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/CSS/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/categories/H5/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/H5/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/categories/JS/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/JS/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/categories/Linux/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/Linux/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/categories/Mac/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/Mac/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/categories/NODE-JS/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/NODE-JS/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/categories/Nginx/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/Nginx/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/categories/VUE-JS/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/VUE-JS/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/categories/flutter/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/flutter/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/categories/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/categories/web/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/web/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/categories/前端/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/前端/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/categories/前端实用/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/前端实用/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/page/2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/page/2/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/page/3/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/page/3/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/page/4/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/page/4/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/tags/Aliyun/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/Aliyun/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/tags/Android/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/Android/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/tags/H5/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/H5/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/tags/IOS/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/IOS/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/tags/JS/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/JS/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/tags/JS/page/2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/JS/page/2/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/tags/Linux/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/Linux/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/tags/Mac/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/Mac/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/tags/NODE/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/NODE/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/tags/Navicat/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/Navicat/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/tags/Nginx/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/Nginx/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/tags/NodeJS/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/NodeJS/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/tags/RabbitMQ/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/RabbitMQ/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/tags/Vue-cli/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/Vue-cli/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/tags/Vue/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/Vue/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/tags/amqplib/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/amqplib/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/tags/css/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/css/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/tags/flutter/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/flutter/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/tags/hexo/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/hexo/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/tags/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/tags/mysql/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/mysql/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/tags/plugin/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/plugin/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/tags/proxy/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/proxy/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/tags/sdk/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/sdk/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/tags/web/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/web/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/tags/其他/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/其他/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/tags/前端/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/前端/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/tags/垂直居中/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/垂直居中/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/tags/模拟器/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/模拟器/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/Aliyun+Nginx部署网站.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Aliyun+Nginx部署网站.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/H5页面实现直播.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/H5页面实现直播.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/Hello-world.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Hello-world.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/Html5-ReplaceState实现详情页到列表页的无刷新且回到上次位置.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Html5-ReplaceState实现详情页到列表页的无刷新且回到上次位置.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/JS奇技淫巧.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/JS奇技淫巧.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/JavaScript学习笔记.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/JavaScript学习笔记.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/Linux-CentOS-7.2.x上从0开始搭建自己的hexo博客.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Linux-CentOS-7.2.x上从0开始搭建自己的hexo博客.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/Linux-CentOS-7.2.x下安装mysql.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Linux-CentOS-7.2.x下安装mysql.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/M1芯片Mac隐私权限不显示应用的解决办法.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/M1芯片Mac隐私权限不显示应用的解决办法.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/Mac下搭安卓模拟器的艰辛之路.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Mac下搭安卓模拟器的艰辛之路.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/Vue-cli快速搭建Vue.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Vue-cli快速搭建Vue.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/centos搭建rabbitmq（一）.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/centos搭建rabbitmq（一）.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/centos搭建rabbitmq（二）.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/centos搭建rabbitmq（二）.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/flutter插件开发实践.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/flutter插件开发实践.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/lbz客户端与H5交互sdk.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/lbz客户端与H5交互sdk.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/proxy代理.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/proxy代理.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/yarn和npm对比.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/yarn和npm对比.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/习题.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/习题.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/从0开始搭建日志分析系统（一）.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/从0开始搭建日志分析系统（一）.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/从0开始搭建日志分析系统（三）.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/从0开始搭建日志分析系统（三）.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/从0开始搭建日志分析系统（二）.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/从0开始搭建日志分析系统（二）.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/全国省市县三级地址联动js.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/全国省市县三级地址联动js.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/几种JS里数组去重方法比较.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/几种JS里数组去重方法比较.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/原生JS的debounce和throttle.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/原生JS的debounce和throttle.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/多table滚动联动.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/多table滚动联动.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/字节跳动面试题.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/字节跳动面试题.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/实用-css容器垂直水平居中.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/实用-css容器垂直水平居中.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/微信开发本地调试.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/微信开发本地调试.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/正则.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/正则.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/水滴筹笔试题.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/水滴筹笔试题.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/浅谈js中对象的赋值、深拷贝、浅拷贝.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/浅谈js中对象的赋值、深拷贝、浅拷贝.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/让js文件支持cmd、node、script标签方式引用.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/让js文件支持cmd、node、script标签方式引用.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/谈谈css里面的一些小知识.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/谈谈css里面的一些小知识.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/谈谈node_env.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/谈谈node_env.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/next/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/next/_config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/next/layout/_partials/pagination.swig" beforeDir="false" afterPath="$PROJECT_DIR$/themes/next/layout/_partials/pagination.swig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -279,6 +149,9 @@
     <option name="height" value="875" />
   </component>
   <component name="ProjectId" id="225JQDoZgozOZODQPSnKh9Q11H0" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <autoscrollFromSource ProjectPane="false" />
@@ -329,12 +202,16 @@
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/source/_posts" />
+    <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.prettier" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.prettier" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.prettier" value="" />
+    <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -497,6 +374,7 @@
       <workItem from="1615883254723" duration="5676000" />
       <workItem from="1639121499214" duration="8390000" />
       <workItem from="1655206542173" duration="11672000" />
+      <workItem from="1657212909704" duration="6457000" />
     </task>
     <servers />
   </component>
@@ -602,6 +480,10 @@
         <entry key="6569068e-ffc7-4697-b2b7-f2e1f1e07d52" value="TOOL_WINDOW" />
       </map>
     </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/source/_posts/从0开始搭建日志分析系统（一）.md">
