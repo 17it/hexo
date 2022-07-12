@@ -4,7 +4,6 @@
     <list default="true" id="cd7c5124-3584-4085-88dd-1e4f4ef75fbc" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/db.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/uni-app引用原生小程序组件.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/uni-app引用原生小程序组件.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/_posts/uni-app项目往cli模式迁移.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/uni-app项目往cli模式迁移.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -374,7 +373,8 @@
       <workItem from="1639121499214" duration="8390000" />
       <workItem from="1655206542173" duration="11672000" />
       <workItem from="1657212909704" duration="6612000" />
-      <workItem from="1657618203060" duration="3963000" />
+      <workItem from="1657618203060" duration="4019000" />
+      <workItem from="1657632404084" duration="5096000" />
     </task>
     <servers />
   </component>
