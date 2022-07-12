@@ -1,6 +1,6 @@
 ---
 title: uni-app项目往cli模式迁移
-date: 2022-07-08
+date: 2022-07-12
 categories: UniApp 小程序
 tags: 
     - 小程序
