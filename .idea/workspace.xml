@@ -2,20 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cd7c5124-3584-4085-88dd-1e4f4ef75fbc" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/db.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/flutter插件开发实践.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/flutter插件开发实践.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/proxy代理.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/proxy代理.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/uni-app项目优化小结.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/uni-app项目优化小结.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/uni-app项目往cli模式迁移.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/uni-app项目往cli模式迁移.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/uni/moment_locale.png" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/uni-app项目优化小结/moment_locale.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/uni/momentjs.png" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/uni-app项目优化小结/momentjs.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/uni/simple_zhengti" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/uni-app项目优化小结/simple_zhengti.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/uni/total.png" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/uni-app项目优化小结/total.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/uni/vendorjs.png" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/uni-app项目优化小结/vendorjs.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/正则.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/正则.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/images/flutter/flutter plugin 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/images/flutter/flutter plugin 3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/images/flutter/flutter plugin.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -370,7 +359,7 @@
       <workItem from="1657618203060" duration="4019000" />
       <workItem from="1657632404084" duration="5181000" />
       <workItem from="1657877684616" duration="2746000" />
-      <workItem from="1658284732720" duration="2455000" />
+      <workItem from="1658284732720" duration="2804000" />
     </task>
     <servers />
   </component>
