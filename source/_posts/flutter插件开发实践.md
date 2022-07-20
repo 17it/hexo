@@ -17,7 +17,7 @@ tags:
 + 2.通过命令行新建，flutter create --org com.xxx.xxx --template=plugin --platforms=android,ios -a java -i objc <plugin name>
  - 实践发现，通过IDE里新建的plugin，没有android和ios目录，所以这里采用的是第二种方法。
  - 新建完成后的目录如下，新建完成后可以cd到example/lib/main.dart，然后run，确认能正常运行，不会报错。
-   ![flutter plugin](../images/flutter/flutter plugin.png)
+   <img src="/flutter插件开发实践/flutter_plugin.png" width="50%">
 ** 新建插件的时候，可以选择android和ios的开发语言，本示例中仅支持java和object-c，不支持kotin和swift.
 
 ### 二、添加功能
@@ -25,7 +25,8 @@ tags:
 2、仿照项目给的默认方法 platformVersion ，新增自己的方法
 
 ### 三、android端功能新增
-1、在android目录上右键，选择flutter，然后open android module in android studio。![flutter plugin 2](../images/flutter/flutter plugin 2.png)
+1、在android目录上右键，选择flutter，然后open android module in android studio。
+    <img src="/flutter插件开发实践/flutter_plugin_2.png" width="50%">
 2、接下来会以安卓项目打开android下面的目录（直接在插件项目里编辑安卓原生代码会报很多错误，并且没有自动补全提示）
 3、添加自己的代码逻辑（这里涉及到安卓原生开发）
     + manifests/AndroidManifest.xml里面添加权限（如果有需要）
@@ -35,7 +36,8 @@ tags:
 5、回到插件项目，在example/lib/main.dart里加上测试代码，看功能是否ok
 
 ### 四、ios端功能新增
-1、在ios目录上右键，选择flutter，然后open ios module in xcode。![flutter plugin 3](../images/flutter/flutter plugin 3.png)
+1、在ios目录上右键，选择flutter，然后open ios module in xcode。
+    <img src="/flutter插件开发实践/flutter_plugin_3.png" width="50%">
 2、接下来会以ios项目打开ios下面的目录
 3、添加自己的代码逻辑（这里涉及到ios原生开发）
     + Pods/Development Pods/<plugin name>/Pod/xxx.podspec里面添加依赖（如果有需要）

@@ -23,7 +23,18 @@ tags:
 参照：https://blog.csdn.net/sinat_17116395/article/details/81013243
 
 ##### 3.看效果
-todotodotodo
+
+1.moment locale对比
+<img src="/uni-app项目优化小结/moment_locale.png" width="50%">
+
+2.moment对比
+<img src="/uni-app项目优化小结/momentjs.png" width="50%">
+
+3.vendorjs对比
+<img src="/uni-app项目优化小结/vendorjs.png" width="50%">
+
+4.整体对比
+<img src="/uni-app项目优化小结/total.png" width="50%">
 
 #### 二、分包
 
@@ -76,6 +87,7 @@ uni-app分包文档：
 
 #### 三、看整体效果
 
-todo
+<img src="/uni-app项目优化小结/simple_zhengti.png" width="50%">
+
 
 经过这两步，整体效果还是不错的，主包从最开始的20xx，直接降到了14xx~ 后续继续优化

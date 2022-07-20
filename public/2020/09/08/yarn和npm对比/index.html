@@ -95,7 +95,7 @@
 <meta property="og:description" content="之前开发项目一直使用的npm，没出啥篓子，直到今天…">
 <meta property="og:locale">
 <meta property="article:published_time" content="2020-09-07T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-06-15T08:28:29.414Z">
+<meta property="article:modified_time" content="2022-06-15T08:28:29.000Z">
 <meta property="article:author" content="Tony">
 <meta property="article:tag" content="JS">
 <meta property="article:tag" content="NODE">
@@ -419,7 +419,7 @@
 <li>yarn 支持平行安装，npm只是串行，这也是yarn安装速度更快的原因</li>
 </ul>
 <h4 id="二、package-lock-json-yarn-lock"><a href="#二、package-lock-json-yarn-lock" class="headerlink" title="二、package-lock.json  yarn.lock"></a>二、package-lock.json  yarn.lock</h4><p>一个项目肯定会多人同时开发，因此每个人install的包版本可能会不同，此时会导致各种奇怪的bug。为了使大家机器上的package版本一致，npm引入了package-lock.json，yarn引入了yarn.lock。它俩的原理都差不多，都是每次install后会在各自的lock文件里注明各个包的版本、下载链接，然后再其他人电脑上Install的时候，会优先用lock文件里的版本。但是它们也有区别：如下。</p>
-<h4 id="三、实验"><a href="#三、实验" class="headerlink" title="三、实验"></a>三、实验</h4><p>1.安装一个新的package，以<a href="mailto:&#x76;&#97;&#110;&#116;&#64;&#50;&#46;&#56;&#46;&#x34;">&#x76;&#97;&#110;&#116;&#64;&#50;&#46;&#56;&#46;&#x34;</a>为例</p>
+<h4 id="三、实验"><a href="#三、实验" class="headerlink" title="三、实验"></a>三、实验</h4><p>1.安装一个新的package，以<a href="mailto:&#118;&#x61;&#110;&#116;&#64;&#x32;&#46;&#x38;&#x2e;&#52;">&#118;&#x61;&#110;&#116;&#64;&#x32;&#46;&#x38;&#x2e;&#52;</a>为例</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yarn add vant@2.8.4</span><br><span class="line"></span><br><span class="line">npm install vant@2.8.4</span><br></pre></td></tr></table></figure>
 <p>过程都很顺利，安装完成我们对比package.json发现，**<em>yarn安装的版本前面没有^，也就是yarn是安装的指定版本，而npm安装的前面带有^</em>**。</p>
 <p>2.重新执行一遍install</p>

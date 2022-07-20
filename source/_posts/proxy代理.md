@@ -69,7 +69,8 @@ ssh -vnNT -R 7688:localhost:8001 root@192.168.238.178
 127.0.0.1 h5-user-test.gmtech.top
 127.0.0.1 h5-user-dev.gmtech.top
 ```
-[图片1](图片1.png)
+
+<img src="/proxy代理/图片1.png" width="50%">
 
 #### 2、本地安装并启动nginx
 + 安装nginx：https://www.cnblogs.com/yy136/p/12690225.html
@@ -87,7 +88,8 @@ server {
 ```
 
 有了以上两步，我们就可以通过代理访问测试/线上环境的http了，此时，如果访问https，还是走不通，会出现下面报错；
-[图片2](图片2.png)
+
+<img src="/proxy代理/图片2.png" width="50%">
 
 #### 3、mac自制证书
 参考：https://www.cnblogs.com/will-space/p/11913744.html
@@ -140,7 +142,8 @@ server {
     }
 }
 ```
-[图片3](图片3.png)
+
+<img src="/proxy代理/图片3.png" width="50%">
 
 #### 4、信任证书
 我们需要把证书加入到本地keychain里面，并添加"始终信任"：
@@ -149,7 +152,7 @@ server {
 
 2. 找到信任 -> 使用此证书时: -> 选择始终信任
 
-[图片4](图片4.png)
+<img src="/proxy代理/图片4.png" width="50%">
 
 3. 到此，可以通过本地代理访问线上http、https地址了。在chrome上地址栏会提示不安全，忽略即可；但是在开发者工具上就可以畅通无阻了，说明微信开发者工具赶chrome还是有不小的差距啊。
 

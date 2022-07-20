@@ -95,7 +95,7 @@
 <meta property="og:description" content="uni-app支持两种模式创建项目，HBuilderX和vue-cli脚手架。">
 <meta property="og:locale">
 <meta property="article:published_time" content="2022-07-11T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-07-12T14:52:43.641Z">
+<meta property="article:modified_time" content="2022-07-20T02:46:13.352Z">
 <meta property="article:author" content="Tony">
 <meta property="article:tag" content="小程序">
 <meta property="article:tag" content="UniApp">
@@ -446,8 +446,8 @@
 <li>1.cli模式run dev比run build后的包大？<br>答：run dev的时候，没有对代码进行压缩</li>
 <li>2.开发的时候怎么使用手机进行预览？<br>问题描述：直接run dev出来的包很大，超过2M，不能预览。官方有说可以在dev命令里加参数–minimize，加上之后，发现每次热更新巨慢4分钟左右，也就是说：我修改了一个文案用了2秒，想在手机上预览看效果，得等上4分钟~<br>答：不加参数–minimize，在微信开发者工具里勾选『预览及真机调试时主包、分包体积上限调整为4M』（此处有个疑问：为啥hbuilder打包时，加上压缩后打包挺快？）</li>
 <li>3.项目里使用的uni三方插件”zb-table”和”lime-charts”报错？<br>答：zb-table报错”egenerator-runtime”的解决方案：<a target="_blank" rel="noopener" href="https://article.itxueyuan.com/Owm5jb">https://article.itxueyuan.com/Owm5jb</a></li>
+<li>4.pages目录分包注意事项？<br>答：分包目录不能跟tarBar配置里的任意一项的目录重合，比如tarBar里有 pages&#x2F;mine&#x2F;mine，此时不能把pages&#x2F;mine作为分包（解决办法就是把pages&#x2F;mine&#x2F;mine文件换个目录）</li>
 </ul>
-<p>TODO:<br>1.基于cli搭建的项目的分包直接在pages目录配置？</p>
 
       
     </div>

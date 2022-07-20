@@ -101,6 +101,5 @@ process.env.VUE_APP_ENV === 'test' ? process.env.VUE_APP_BASE_API_TEST : process
 答：不加参数--minimize，在微信开发者工具里勾选『预览及真机调试时主包、分包体积上限调整为4M』（此处有个疑问：为啥hbuilder打包时，加上压缩后打包挺快？）
 + 3.项目里使用的uni三方插件"zb-table"和"lime-charts"报错？
 答：zb-table报错"egenerator-runtime"的解决方案：https://article.itxueyuan.com/Owm5jb
-
-TODO:
-1.基于cli搭建的项目的分包直接在pages目录配置？
++ 4.pages目录分包注意事项？
+答：分包目录不能跟tarBar配置里的任意一项的目录重合，比如tarBar里有 pages/mine/mine，此时不能把pages/mine作为分包（解决办法就是把pages/mine/mine文件换个目录）
