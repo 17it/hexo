@@ -111,17 +111,35 @@ package.json里命令修改为
 
 #### 五、配置规则
 
-除了最基础的stylelint包，我们还需要如下库(后面几个有可能不需要，没一个一个删掉实验~)
+除了最基础的stylelint包，我们还需要如下库
 
 ```bash
+npm i postcss-scss -D // 不能省略
+npm i postcss -D
 npm i stylelint-config-standard -D // stylelint的推荐配置
 npm i stylelint-order -D // 格式化css文件时对代码的属性进行排序
 npm i stylelint-config-standard-scss -D // stylelint的推荐scss配置
-
+npm i stylelint-config-recommended-vue -D
 npm i stylelint-config-prettier -D
 npm i stylelint-config-rational-order -D
-npm i stylelint-config-recommended-vue -D
 npm i stylelint-scss -D
+```
+
+可供参考的配置
+
+```bash
+    "postcss-html": "^1.5.0",
+    "postcss-scss": "^4.0.4",
+    "postcss": "^8.4.14",
+    "stylelint": "^14.9.1",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-recommended-vue": "^1.4.0",
+    "stylelint-config-standard": "^23.0.0",
+    "stylelint-config-standard-scss": "^4.0.0",
+    "stylelint-order": "^5.0.0",
+    "stylelint-scss": "^4.3.0",
+    "stylelint-webpack-plugin": "^3.3.0",
 ```
 
 #### 六、忽略lint文件
@@ -169,3 +187,8 @@ module.exports = {
 ##### 2、在webstorm里配置 External tools
 
 请参照：https://stackoverflow.com/questions/54304313/stylelint-fix-in-webstorm
+
+#### 八、答疑解惑
++ 1、npm run lintcss并不能递归格式化src目录下所有的vue和css文件？
+  答：看了官方文档，递归stylelint src目录下所有的vue和css文件的时候，这样配置stylelint src/**/*.{scss,vue}，但实践发现，只能找到 src/xxx/xxx.{vue,css}，并不能按照我们预期递归src目录下所有的vue和css文件。
+     好在步骤7.1里，可以配置stylelint-webpack-plugin，这样在npm run dev的时候就会先让stylelint通过之后再继续执行。

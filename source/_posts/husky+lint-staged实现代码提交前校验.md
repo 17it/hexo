@@ -27,7 +27,7 @@ npm install husky -D
 
 ##### 2.下面命令第一次执行一次就行
 ```bash
-npm set-script prepare "husky install"
+npm set-script prepare "husky install" // npm set-script命令需要npm版本为7.x，如果npm版本不够，直接在package.json的script里加命令 "prepare": "husky install"
 npm run prepare
 ```
 

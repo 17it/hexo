@@ -112,18 +112,28 @@ package.json里加上命令
 
 #### 四、配置规则
 
-除了最基础的eslint包，我们还需要如下库(后面几个有可能不需要，没一个一个删掉实验~)
+除了最基础的eslint包，我们还需要如下库
 
 ```bash
 npm i @babel/eslint-parser -D
 npm i eslint-config-standard -D
 npm i eslint-plugin-standard -D
 npm i eslint-plugin-vue -D
-
 npm i eslint-plugin-import -D
 npm i eslint-plugin-node -D
-npm i eslint-plugin-prettier -D
 npm i eslint-plugin-promise -D
+```
+
+以下版本可以作为参考：
+```bash
+    "@babel/eslint-parser": "^7.18.9",
+    "eslint": "^8.20.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-standard": "^5.0.0",
+    "eslint-plugin-vue": "^9.2.0",
 ```
 
 #### 五、忽略lint文件
@@ -136,12 +146,25 @@ dist
 src/components/uni-lechart
 src/components/uni-echarts
 src/uni_modules
+src/utils/aliyun-upload-sdk-1.0.0.min.js
+src/utils/aliplayercomponents-1.0.8.min.js
+src/utils/aliyun-webrtc-miniapp-sdk.js
+src/utils/html-parser.js
+/src/common/permission.js
+src/wxcomponents
+src/miniprogram_npm
+src/utils/crypto
 ```
 
 #### 六、自动格式化
 
 ##### webstorm
++ 1、在Preferences -> Languages & Frameworks -> JavaScript -> Code Quality Tools -> ESLint里启用
++ 2、在代码里右键，Fix Eslint Problems（还可以自己设置快捷键进行格式化）
 
-1、在Preferences -> Languages & Frameworks -> JavaScript -> Code Quality Tools -> ESLint里启用
-
-2、在代码里右键，Fix Eslint Problems（还可以自己设置快捷键进行格式化）
+#### 七、答疑解惑
++ 1、执行命令 npm run lint时报错"ESLint couldn't find the plugin "eslint-plugin-n"."?
+  答：npm i eslint-config-standard -D的时候，安装的版本是17.x，降级成16.x即可（可以参照上面给出的配置）
++ 2、可能在很多现成的脚手架里面会看到同时使用了eslint和prettier，是否有必要？
+  答：通过试验，可以不要prettier。至于为什么要同事使用两者，原因如下：（参考：https://www.jianshu.com/p/dd07cca0a48e）
+  <img src="/eslint实践/eslint_prettier.png" width="50%">
