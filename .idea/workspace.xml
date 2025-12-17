@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="cd7c5124-3584-4085-88dd-1e4f4ef75fbc" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/proxy代理.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/proxy代理.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,7 +197,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "/Users/tony/Documents/playground/hexo/source/_posts/eslint实践",
+    "last_opened_file_path": "/Users/tony/Documents/playground/hexo/source/_posts/Micro-App",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -209,8 +208,9 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/source/_posts/eslint实践" />
+      <recent name="$PROJECT_DIR$/source/_posts/Micro-App" />
       <recent name="$PROJECT_DIR$/source/_posts" />
+      <recent name="$PROJECT_DIR$/source/_posts/eslint实践" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -381,7 +381,7 @@
       <workItem from="1657877684616" duration="2746000" />
       <workItem from="1658284732720" duration="2831000" />
       <workItem from="1658386382715" duration="7692000" />
-      <workItem from="1765954937359" duration="1459000" />
+      <workItem from="1765954937359" duration="5813000" />
     </task>
     <servers />
   </component>
