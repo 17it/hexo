@@ -14,6 +14,7 @@ tags:
 <!-- more -->
 
 ### 零、之前的解决方案
+
 之前是通过修改服务器上nginx的配置，利用反向转发ssh -vnNT -R，把测试/线上的代码打到自己本地进行联调，主要配置如下：
 + 服务器上的nginx配置反向转发（放开下面#注释掉的三行配置）
 ```bash
@@ -55,6 +56,7 @@ ssh -vnNT -R 7688:localhost:8001 root@192.168.238.178
 ** 到此，总结下：如果不用之前的解决方案反向转发，则chrome上可以通过插件进行代理，但是不支持https；微信开发者工具上没办法代理。
 
 ### 一、较完美的解决方案
+
 思考：我们要实现的效果是本地访问网站的时候（不管事chrome还是微信开发者工具）走代理，其他人访问还是正常走服务器。
 
 既然我们是拦截自己电脑，那么我们可以用系统的hosts，然而，系统的hosts代理没办法指定本地的端口，而且本地还没有https。
@@ -64,6 +66,7 @@ ssh -vnNT -R 7688:localhost:8001 root@192.168.238.178
 ### 二、实操
 
 #### 1、本地配置hosts
+
 可以直接修改系统 /etc/hosts 文件，添加配置：
 ```bash
 127.0.0.1 h5-user-test.gmtech.top
@@ -73,6 +76,7 @@ ssh -vnNT -R 7688:localhost:8001 root@192.168.238.178
 <img src="/proxy代理/图片1.png" width="50%">
 
 #### 2、本地安装并启动nginx
+
 + 安装nginx：https://www.cnblogs.com/yy136/p/12690225.html
 + 设置开机自启动：https://www.cnblogs.com/kamback/p/8989822.html
 + 配置nginx：
@@ -92,6 +96,7 @@ server {
 <img src="/proxy代理/图片2.png" width="50%">
 
 #### 3、mac自制证书(openssl)
+
 参考：https://www.cnblogs.com/will-space/p/11913744.html
 + 3.1 生成根密钥
 ```bash
@@ -158,6 +163,7 @@ b. 找到信任 -> 使用此证书时: -> 选择始终信任
 c. 到此，可以通过本地代理访问线上http、https地址了。在chrome上地址栏会提示不安全，忽略即可；但是在开发者工具上就可以畅通无阻了，说明微信开发者工具赶chrome还是有不小的差距啊。
 
 #### 4、mac自制证书(mkcert)
+
 参考：https://github.com/FiloSottile/mkcert
 + 4.1 安装mkcert
 ```bash
@@ -191,6 +197,7 @@ server {
 3. 本地nginx要配置https需要证书，可以用openssl自制证书并信任
 
 ### 三、手机连电脑进行代理访问（只支持http）
+
 1. 电脑安装spy-debugger
 2. 本地开启spy-debugger
 3. 手机绑本地spy-debugger代理：本地ip + 端口 9888

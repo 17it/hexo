@@ -18,6 +18,7 @@ tags:
 MicroApp和技术栈无关，也不和业务绑定，可以用于任何前端框架。
 
 #### 优势：
+
 + 1、使用简单
 我们将所有功能都封装到一个类WebComponent组件中，从而实现在基座应用中嵌入一行代码即可渲染一个微前端应用。
 
@@ -28,6 +29,7 @@ MicroApp提供了js沙箱、样式隔离、元素隔离、路由隔离、预加�
 为了保证各个业务之间独立开发、独立部署的能力，micro-app做了诸多兼容，在任何前端框架中都可以正常运行。
 
 ### 一、快速开始
+
 **主应用：**
 
 1、安装依赖
@@ -58,6 +60,7 @@ add_header 'Access-Control-Allow-Origin' '*';
 到此，最简单的micro-app就集成了。
 
 ### 二、配置项
+
 开发一个Hello World浏览器插件很简单，只需要一个manifest.json配置文件，和一个popup.html文件即可。开发使用html.css.js，跟书写页面一样简单。
 
 ```bash
@@ -87,6 +90,7 @@ ignore：忽略元素（当link、script、style元素具有ignore属性，micro
 ```
 
 ### 三、生命周期
+
 **生命周期**
 
 + created: 标签初始化后，加载资源前触发。
@@ -165,6 +169,7 @@ import './public-path'
 子应用里获取真实document（即主应用document）
 
 ### 五、JS沙箱
+
 JS沙箱通过自定义的window、document拦截子应用的JS操作，实现一个相对独立的运行空间，避免全局变量污染，让每个子应用都拥有一个相对纯净的运行环境。
 
 micro-app有两种沙箱模式：with沙箱和iframe沙箱，它们覆盖不同的使用场景且可以随意切换，默认情况下使用with沙箱，如果无法正常运行可以切换到iframe沙箱。
@@ -175,6 +180,7 @@ micro-app有两种沙箱模式：with沙箱和iframe沙箱，它们覆盖不同�
 在正常情况下，通过 var name 或 function name () {} 定义的顶层变量会泄漏为全局变量，通过window.name或name就可以全局访问，但是在沙箱环境下这些顶层变量无法泄漏为全局变量，window.name或name的值为undefined，导致出现问题。
 
 ### 六、虚拟路由系统
+
 MicroApp通过拦截浏览器路由事件以及自定义的location、history，实现了一套虚拟路由系统，子应用运行在这套虚拟路由系统中，和主应用的路由进行隔离，避免相互影响。
 
 **路由模式**
@@ -308,6 +314,7 @@ micro-app提供了一套灵活的数据通信机制，方便主应用和子应�
 同时我们也提供了全局通信，方便跨应用之间的数据通信。
 
 #### 一、子应用获取来自主应用的数据
+
 直接获取：
 ```bash
 window.microApp.getData()
@@ -319,6 +326,7 @@ window.microApp.addDataListener(dataListener: (data: Object) => any, autoTrigger
 ```
 
 #### 二、子应用向主应用发送数据
+
 **子：**
 ```bash
 window.microApp.dispatch({type: '子应用发送给主应用的数据'}, (data) => {})
@@ -335,6 +343,7 @@ microApp.addDataListener('my-app', (data) => {
 forceDispatch: dispatch方法会缓存每次发送的值，然后合并发给主应用，如果相同则不发送，强制发送可以使用forceDispatch
 
 #### 三、主应用向子应用发送数据
+
 + 方式1: 通过data属性发送数据（data只接受对象类型，数据变化时会重新发送）
 ```bash
 <micro-app name='my-app' url='xx' :data='dataForChild' />
@@ -346,6 +355,7 @@ microApp.setData('my-app', {type: '新的数据'}) // 强制发送用forceSetDat
 ```
 
 #### 四、主应用获取来自子应用的数据
+
 + 方式1：直接获取数据
 ```bash
 microApp.getData(appName) // 返回子应用的data数据
@@ -362,6 +372,7 @@ microApp.addDataListener(appName: string, dataListener: (data: Object) => any, a
 ```
 
 #### 五、清空数据
+
 由于通信的数据会被缓存，即便子应用被卸载也不会清空，这可能会导致一些困扰，此时可以主动清空缓存数据来解决。
 
 **主应用：**
@@ -381,6 +392,7 @@ window.microApp.clearData()
 ```
 
 #### 全局数据通信
+
 全局数据通信会向主应用和所有子应用发送数据，在跨应用通信的场景中适用。
 
 **主应用:**
@@ -405,6 +417,7 @@ microApp.addGlobalDataListener((data) => {
 publicPath：如果自动补全失败，可以采用运行时publicPath方案解决（见第四章环境变量里 __MICRO_APP_PUBLIC_PATH__ ）
 
 #### 二、资源共享
+
 当多个子应用拥有相同的js或css资源，可以指定这些资源在多个子应用之间共享，在子应用加载时直接从缓存中提取数据，从而提高渲染效率和性能。
 
 + 方式一：globalAssets
