@@ -1,0 +1,881 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="ubuntu,服务器迁移,部署," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="本文记录一次完整的 Ubuntu 服务器迁移流程，按组件拆分为四个部分：代理面板 3x-ui、前端项目 ftt、量化框架 bbgo、以及容器化项目 QuantDinger。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ubuntu服务器迁移">
+<meta property="og:url" content="https://17it.github.io/2026/10/26/ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%81%E7%A7%BB/index.html">
+<meta property="og:site_name" content="你不知道你不知道">
+<meta property="og:description" content="本文记录一次完整的 Ubuntu 服务器迁移流程，按组件拆分为四个部分：代理面板 3x-ui、前端项目 ftt、量化框架 bbgo、以及容器化项目 QuantDinger。">
+<meta property="og:locale">
+<meta property="article:published_time" content="2026-10-25T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-10-26T07:09:00.148Z">
+<meta property="article:author" content="Tony">
+<meta property="article:tag" content="ubuntu">
+<meta property="article:tag" content="服务器迁移">
+<meta property="article:tag" content="部署">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://17it.github.io/2026/10/26/ubuntu服务器迁移/"/>
+
+
+
+
+
+  <title> ubuntu服务器迁移 | 你不知道你不知道 </title>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?cf8693b35d2353f4411bb261a3042217";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">你不知道你不知道</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">17it 一起IT</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://17it.github.io/2026/10/26/ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%81%E7%A7%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="你不知道你不知道">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                ubuntu服务器迁移
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2026-10-26T00:00:00+08:00">
+                2026-10-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BF%90%E7%BB%B4/" itemprop="url" rel="index">
+                    <span itemprop="name">运维</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/2026/10/26/ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%81%E7%A7%BB/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o">本文总阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本文记录一次完整的 Ubuntu 服务器迁移流程，按组件拆分为四个部分：代理面板 3x-ui、前端项目 ftt、量化框架 bbgo、以及容器化项目 QuantDinger。</p>
+<span id="more"></span>
+
+<h2 id="一、安装-3x-ui"><a href="#一、安装-3x-ui" class="headerlink" title="一、安装 3x-ui"></a>一、安装 3x-ui</h2><p>1、提前解析好域名到服务器。</p>
+<p>2、ufw 放行 80、443（申请证书时需要）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow 80/tcp</span><br><span class="line">sudo ufw allow 443/tcp</span><br></pre></td></tr></table></figure>
+
+<p>3、安装 3x-ui：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh)</span><br></pre></td></tr></table></figure>
+
+<p>4、具体安装步骤参照 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wES8BEcYczI">https://www.youtube.com/watch?v=wES8BEcYczI</a></p>
+<p>5、登录 3x-ui 网站，新建入站、客户端。</p>
+<p>6、放行入站和客户端使用的端口（以及 <code>2053</code>、<code>2096</code>）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow 2053/tcp</span><br><span class="line">sudo ufw allow 2096/tcp</span><br><span class="line"><span class="comment"># 根据实际入站/客户端端口继续放行</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="二、安装-ftt"><a href="#二、安装-ftt" class="headerlink" title="二、安装 ftt"></a>二、安装 ftt</h2><blockquote>
+<p>前置：提前解析好域名到服务器。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 Node 16.x</span></span><br><span class="line">curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -</span><br><span class="line">sudo apt-get install -y nodejs</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证</span></span><br><span class="line">node -v   <span class="comment"># v16.x</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 全局装 pm2（若用 NodeSource 方式）</span></span><br><span class="line">sudo npm install -g pm2</span><br><span class="line"></span><br><span class="line"><span class="comment"># 克隆项目</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/17it/fortune</span><br><span class="line"></span><br><span class="line"><span class="comment"># 回到项目目录</span></span><br><span class="line"><span class="built_in">cd</span> fortune</span><br><span class="line">npm install</span><br><span class="line">npm run build</span><br><span class="line">pm2 start ecosystem.config.js</span><br></pre></td></tr></table></figure>
+
+<p>安装 Nginx 并迁移原配置与证书：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 nginx</span></span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt install -y nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 拷贝 nginx 配置到新服务器</span></span><br><span class="line">scp /etc/nginx/conf.d/* root@207.148.89.101:/etc/nginx/conf.d</span><br><span class="line"><span class="comment"># 拷贝证书到新服务器</span></span><br><span class="line">scp /etc/nginx/ssl/* root@207.148.89.101:/etc/nginx/ssl</span><br><span class="line"></span><br><span class="line">sudo systemctl start nginx      <span class="comment"># 启动</span></span><br><span class="line">sudo systemctl <span class="built_in">enable</span> nginx     <span class="comment"># 开机自启</span></span><br><span class="line">sudo systemctl status nginx     <span class="comment"># 查状态</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>有可能 80 被其他进程占用，导致访问不到项目：</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo pkill -f <span class="string">&#x27;nginx: master&#x27;</span></span><br><span class="line">sudo systemctl start nginx</span><br></pre></td></tr></table></figure>
+
+<h2 id="三、安装-bbgo（从源码编译安装）"><a href="#三、安装-bbgo（从源码编译安装）" class="headerlink" title="三、安装 bbgo（从源码编译安装）"></a>三、安装 bbgo（从源码编译安装）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 go</span></span><br><span class="line">wget https://go.dev/dl/go1.27.2.linux-amd64.tar.gz</span><br><span class="line">sudo <span class="built_in">rm</span> -rf /usr/local/go</span><br><span class="line">sudo tar -C /usr/local -xzf go1.27.2.linux-amd64.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将 Go 的二进制目录添加到 PATH</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/usr/local/go/bin</span><br><span class="line"><span class="built_in">source</span> ~/.profile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查</span></span><br><span class="line">go version</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 bbgo</span></span><br><span class="line">CGO_ENABLED=1 go install -x github.com/c9s/bbgo/cmd/bbgo@main</span><br><span class="line"><span class="built_in">export</span> PATH=~/go/bin:<span class="variable">$PATH</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证</span></span><br><span class="line">bbgo version</span><br></pre></td></tr></table></figure>
+
+<p>安装 Redis 并迁移配置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 redis</span></span><br><span class="line">apt update &amp;&amp; apt install -y redis-server</span><br><span class="line">systemctl <span class="built_in">enable</span> --now redis-server</span><br><span class="line">redis-cli ping   <span class="comment"># 返回 PONG 即正常</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 拷贝配置到新服务器</span></span><br><span class="line">scp bbgo.yaml bbgo.yaml.bak bbgo1.sqlite3 .env.local root@207.148.89.101:/root</span><br></pre></td></tr></table></figure>
+
+<p>运行（使用 tmux 后台常驻）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 后台运行</span></span><br><span class="line">apt install -y tmux</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新建会话并运行</span></span><br><span class="line">tmux new -s bbgo</span><br><span class="line"><span class="comment"># 进入 tmux 后执行启动命令（--no-sync 不同步之前订单）</span></span><br><span class="line">/root/go/bin/bbgo run --no-sync</span><br><span class="line"></span><br><span class="line"><span class="comment"># 按 Ctrl+B 然后按 D 脱离会话（程序继续后台跑）</span></span><br><span class="line"><span class="comment"># 回来查看</span></span><br><span class="line">tmux attach</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、安装-QuantDinger（预构建镜像）"><a href="#四、安装-QuantDinger（预构建镜像）" class="headerlink" title="四、安装 QuantDinger（预构建镜像）"></a>四、安装 QuantDinger（预构建镜像）</h2><p>执行安装脚本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo bash https://github.com/17it/fortune.git/quantdinger_install.sh</span><br></pre></td></tr></table></figure>
+
+<p>修改配置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/QuantDinger</span><br><span class="line">vim .<span class="built_in">env</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改为</span></span><br><span class="line">FRONTEND_HOST=0.0.0.0</span><br><span class="line">MOBILE_HOST=0.0.0.0</span><br></pre></td></tr></table></figure>
+
+<p>重启并验证：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker compose up -d</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证：应显示 0.0.0.0:8888 和 0.0.0.0:8889</span></span><br><span class="line">ss -tlnp | grep -E <span class="string">&quot;8888|8889&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 防火墙放行端口</span></span><br><span class="line">sudo ufw allow 8888/tcp</span><br><span class="line">sudo ufw allow 8889/tcp</span><br></pre></td></tr></table></figure>
+
+<h3 id="代理（oracle-在-usa，被-binance-禁止连不上，用-jap-服务器代理中转）"><a href="#代理（oracle-在-usa，被-binance-禁止连不上，用-jap-服务器代理中转）" class="headerlink" title="代理（oracle 在 usa，被 binance 禁止连不上，用 jap 服务器代理中转）"></a>代理（oracle 在 usa，被 binance 禁止连不上，用 jap 服务器代理中转）</h3><p><strong>一、在 3x-ui 面板添加 HTTP 入站</strong></p>
+<ul>
+<li>备注：<code>quantdinger-proxy</code></li>
+<li>协议：http（推荐，ccxt 原生支持，免装 PySocks；也可选 socks）</li>
+<li>监听 IP：留空或 <code>0.0.0.0</code></li>
+<li>端口：<code>3128</code>（随意，别和面板&#x2F;其他节点冲突）</li>
+<li>用户名&#x2F;密码：务必设置，如 <code>qd</code> &#x2F; 强密码</li>
+<li>修改后重启 Xray</li>
+</ul>
+<p><strong>二、jap 服务器验证 + 放行防火墙</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 本机先验证代理是否生效（换成你的用户名密码）</span></span><br><span class="line">curl -s -x http://qd:你的密码@127.0.0.1:3128 -o /dev/null -w <span class="string">&#x27;%&#123;http_code&#125;\n&#x27;</span> https://api.binance.com/api/v3/ping</span><br><span class="line"><span class="comment"># 应返回 200</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 只允许美国服务器访问这个端口</span></span><br><span class="line">sudo ufw allow from 161.153.24.138 to any port 3128</span><br></pre></td></tr></table></figure>
+
+<p><strong>三、oracle 服务器设置代理</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/QuantDinger</span><br><span class="line">sudo vim docker-compose.yml</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>backend</code> 服务 <code>environment:</code> 段追加代理：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="string">HTTP_PROXY=http://qd:你的密码@JP_IP:3128</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">HTTPS_PROXY=http://qd:你的密码@JP_IP:3128</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">NO_PROXY=localhost,127.0.0.1,postgres,redis,db</span></span><br></pre></td></tr></table></figure>
+
+<p>重启并验证：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker compose up -d</span><br><span class="line"></span><br><span class="line">docker compose <span class="built_in">exec</span> backend sh -c <span class="string">&quot;curl -s -o /dev/null -w &#x27;%&#123;http_code&#125;\n&#x27; https://api.binance.com/api/v3/ping&quot;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://onm9ileaw.bkt.clouddn.com/pics/private/wxpay.jpeg" alt=" WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://onm9ileaw.bkt.clouddn.com/pics/private/alipay.jpeg" alt=" Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ubuntu/" rel="tag"># ubuntu</a>
+          
+            <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%81%E7%A7%BB/" rel="tag"># 服务器迁移</a>
+          
+            <a href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag"># 部署</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2025/12/17/Micro-App/" rel="next" title="Micro-App">
+                <i class="fa fa-chevron-left"></i> Micro-App
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="" />
+          <p class="site-author-name" itemprop="name"></p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/17it?tab=repositories" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/5344903879/profile?topnav=1&wvr=6" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%AE%89%E8%A3%85-3x-ui"><span class="nav-number">1.</span> <span class="nav-text">一、安装 3x-ui</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%AE%89%E8%A3%85-ftt"><span class="nav-number">2.</span> <span class="nav-text">二、安装 ftt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%AE%89%E8%A3%85-bbgo%EF%BC%88%E4%BB%8E%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">三、安装 bbgo（从源码编译安装）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%AE%89%E8%A3%85-QuantDinger%EF%BC%88%E9%A2%84%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">四、安装 QuantDinger（预构建镜像）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%90%86%EF%BC%88oracle-%E5%9C%A8-usa%EF%BC%8C%E8%A2%AB-binance-%E7%A6%81%E6%AD%A2%E8%BF%9E%E4%B8%8D%E4%B8%8A%EF%BC%8C%E7%94%A8-jap-%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BB%A3%E7%90%86%E4%B8%AD%E8%BD%AC%EF%BC%89"><span class="nav-number">4.1.</span> <span class="nav-text">代理（oracle 在 usa，被 binance 禁止连不上，用 jap 服务器代理中转）</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  1991 - 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Tony</span>
+</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user">本站访客数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">本站总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "ea7464b38e634abca0f1f99c4189f526",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
